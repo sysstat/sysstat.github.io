@@ -1,0 +1,1415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>SYSSTAT</title>
+    <meta http-equiv="content-type" content="text/html;
+      charset=windows-1252">
+    <meta content="Performance tools for LINUX" name="description">
+    <link type="text/css" href="Style/export.css" rel="stylesheet"
+      media="screen">
+    <meta name="author" content="S. Godard">
+  </head>
+  <body style="color: rgb(255, 255, 0); background-color: rgb(0, 0,
+    110);" link="#33ff33" alink="#66ff99" vlink="#33cc00">
+    <table style="width: 100%; height: 95px;" cellspacing="0"
+      cellpadding="2" border="0">
+      <tbody>
+        <tr>
+          <td colspan="2" style="vertical-align: middle; text-align:
+            center; width: 20%; background-repeat: repeat-x;"
+            class="bandeau">
+            <div style="text-align: left;"><img style="width: 375px;
+                height: 157px;" alt="bandeau1" src="bandeau11.jpg"><img
+                style="width: 333px; height: 156px;" alt="bandeau2"
+                src="bandeau22.jpg"></div>
+          </td>
+        </tr>
+        <tr>
+          <td id="menuhaut" colspan="2" rowspan="1"><span></span>
+            <hr style="height: 12px; width: 100%;">
+            <div style="text-align: center; font-family:
+              Helvetica,Arial,sans-serif;"><font size="+1"><a
+                  href="index.html">News</a>&nbsp; <span style="color:
+                  rgb(51, 255, 51);">| &nbsp;<a href="features.html">Features</a>&nbsp;
+
+
+
+
+
+
+                  |</span> &nbsp;<a href="download.html">Download</a>&nbsp;
+
+
+
+
+
+
+                <span style="color: rgb(51, 255, 51);">|</span>&nbsp;&nbsp;<a
+                  href="https://github.com/sysstat/sysstat"
+                  target="_blank">GitHub</a>&nbsp; <span style="color:
+                  rgb(51, 255, 51);">| </span>&nbsp;&nbsp;<a
+                  href="documentation.html">Documentation</a>&nbsp; <span
+                  style="color: rgb(51, 255, 51);">|</span>&nbsp;&nbsp;<a
+                  href="tutorial.html">Tutorial</a>&nbsp; <span
+                  style="color: rgb(51, 255, 51);">|</span>&nbsp;&nbsp;<a
+                  href="faq.html">FAQ</a>&nbsp; <span style="color:
+                  rgb(51, 255, 51);">|</span> &nbsp;<a
+                  href="mailto:sysstat%20%3Cat%3E%20orange.fr">Contact</a><span
+                  style="color: rgb(51, 255, 51);"></span></font> </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table style="width: 100%; height: 100%;" cellspacing="0"
+      cellpadding="2" border="0">
+      <tbody>
+        <tr>
+          <td style="text-align: left; vertical-align: top; width:
+            200px; background-color: rgb(0, 0, 110);" id="gauche">
+            <div style="font-family: Helvetica,Arial,sans-serif;
+              text-align: left;"><small>Useful links:</small><br>
+            </div>
+            <a target="_blank" href="http://www.qwant.com"><font
+                face="Helvetica, Arial, sans-serif" size="-1">Qwant</font></a><br>
+            <a href="http://www.linux-foundation.org/" target="_blank"><small><span
+                  style="font-family: Helvetica,Arial,sans-serif;">The
+                  Linux Foundation</span></small></a><br>
+            <a href="http://www.kernel.org" target="_blank"><small><span
+                  style="font-family: Helvetica,Arial,sans-serif;">Linux
+                  Kernel Archives</span></small></a><br
+              style="font-family: Helvetica,Arial,sans-serif;">
+            <a href="http://lkml.org" target="_blank"><small><span
+                  style="font-family: Helvetica,Arial,sans-serif;">Linux
+                  Kernel Mailing List</span></small></a><br>
+            <a href="http://tldp.org" target="_blank"><small><span
+                  style="font-family: Helvetica,Arial,sans-serif;">The
+                  Linux Documentation Project</span></small></a><br
+              style="color: rgb(0, 0, 126);">
+            <hr style="width: 100%; height: 1px; color: rgb(0, 0, 126);
+              background-color: rgb(204, 204, 255);"><small><small><span
+                  style="color: rgb(0, 0, 126);"></span></small></small>
+            <font size="-2">&nbsp;</font><br>
+            <form action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"> <input name="cmd" value="_s-xclick"
+                type="hidden"> <input name="hosted_button_id"
+                value="45U6F9R73ESFQ" type="hidden"> <input
+                src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+                name="submit" alt="PayPal - The safer, easier way to pay
+                online!" type="image"> <img alt=""
+                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+                height="1" border="0" width="1"> </form>
+            <font size="-2">&nbsp;</font><br>
+            <a href="http://validator.w3.org/check?uri=referer"><img
+                style="border: 0px solid ; width: 88px; height: 31px;"
+                alt="Valid HTML 4.01 Transitional"
+                src="http://www.w3.org/Icons/valid-html401"></a><br>
+            <font size="-2">&nbsp;</font><br>
+            <font size="-2">&nbsp;</font><br>
+            <small><small><font style="font-family:
+                  Helvetica,Arial,sans-serif; color: rgb(255, 255, 0);"
+                  size="+1"><small><small>You are visitor #</small></small></font></small></small><br
+              style="color: rgb(0, 0, 126);">
+            <img alt="Visitor counter"
+src="http://pages.perso.orange.fr/client/php/compteur.php?url=sebastien.godard&amp;df=counter1&amp;dd=A&amp;frgb=noir&amp;tr=Non&amp;pad=Oui&amp;comma=Non"
+              height="30" width="106"><br style="color: rgb(0, 0, 126);">
+            <span style="color: rgb(0, 0, 126);" class="titregauche1"></span>
+            <hr style="width: 100%; height: 1px; color: rgb(0, 0, 126);
+              background-color: rgb(204, 204, 255);"> </td>
+          <td style="text-align: left; vertical-align: top;"
+            id="contenu"> <span style="font-family:
+              Helvetica,Arial,sans-serif; color: rgb(255, 255, 255);"
+              lang="EN-GB">This page has news, information,
+              documentation and links software for the <span
+                style="font-weight: bold;">sysstat</span> utilities that
+              I created for Linux. The sysstat utilities are a
+              collection of <span style="font-weight: bold;
+                text-decoration: underline;">performance monitoring
+                tools</span> for Linux. These include <span
+                style="font-weight: bold;">sar, sadf, mpstat, iostat,
+                tapestat, pidstat, cifsiostat&nbsp; and sa tools</span>.
+              Go to the <a href="features.html">Features</a> page to
+              display a list of sysstat's features, or see the&nbsp;<a
+                href="documentation.html">Documentation</a> page&nbsp;to
+              learn some more about them.<br>
+              Sysstat is <a target="_blank"
+                href="http://www.opensource.org/">Open Source</a> / <a
+                target="_blank"
+                href="http://www.gnu.org/philosophy/free-sw.html">Free
+                Software</a>, and is freely available under the <a
+                target="_blank"
+                href="http://www.gnu.org/licenses/gpl-2.0.html">GNU
+                General Public License, version 2</a>. </span> <br>
+            <h4 style="text-align: center; font-family:
+              Helvetica,Arial,sans-serif;"><em><span style="font-size:
+                  20pt; color: rgb(204, 255, 255);" lang="EN-GB">News</span></em></h4>
+            <hr style="width: 100%; height: 2px;">
+            <div style="text-align: left; font-family:
+              Helvetica,Arial,sans-serif;">
+              <p style="font-weight: bold;">Sunday January 29th, 2023</p>
+              <font color="#ff6666">Sysstat 12.7.2 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.6.2 released
+                (stable version).</font><br>
+              This version adds a new activity to sar and sadf: <b>Batteries
+                capacity</b>
+              statistics, which can be displayed using option "-m BAT".<br>
+              Output has also been improved so that healthy metrics
+              values (for all
+              sysstat commands) are no longer be displayed in "red" (or
+              any other
+              specific color).<br>
+              Last, starting and ending times can now be entered as a
+              number of
+              seconds since the Epoch with sar and sadf's options -s/-e.
+              <br>
+              <p style="font-weight: bold;">Sunday November 6th, 2022</p>
+              <font color="#ff6666">Sysstat 12.7.1 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.6.1 released
+                (stable version).</font><br>
+              This version adds some small new features, like option -H
+              to mpstat to handle vCPU physical hotplug, or true time
+              mode support to sadf's SVG output.<br>
+              It also fixes several bugs, one of which has been the
+              object of a security advisory (CVE-2022-39377).<br>
+              <p style="font-weight: bold;">Monday February 28th, 2022</p>
+              <font color="#99ffff">Sysstat 12.6.0 released (stable
+                version).</font><i><br>
+              </i>This version adds a new metric (softnet backlog) to
+              the software-based network processing activity. It also
+              fixes several bugs concerning the recent interrupts
+              statistics rewritten code, and to metrics names used by
+              sadf in the PCP output format..<br>
+              <p style="font-weight: bold;">Monday February 28th, 2022</p>
+              <font color="#99ffff">Sysstat 12.6.0 released (stable
+                version).</font><i><br>
+              </i>This version adds a new metric (softnet backlog) to
+              the software-based network processing activity. It also
+              fixes several bugs concerning the recent interrupts
+              statistics rewritten code, and to metrics names used by
+              sadf in the PCP output format..<br>
+              <p style="font-weight: bold;">Monday February 28th, 2022</p>
+              <font color="#ff6666">Sysstat 12.5.6 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.4.5 released
+                (stable version).</font><i><br>
+              </i>
+              <div align="left"><b><font color="#cccccc"><i>Please first
+                      spare a thought for the Ukrainian people suffering
+                      this brutal assault from a bloodthirsty
+                      megalomaniac. Nothing personal against my Russian
+                      friends here since I have always made a
+                      distinction between peoples and their leaders. Yet
+                      today everybody should stand with Ukraine.</i></font></b><br>
+              </div>
+              <font color="#99ffff"> </font>This version includes a
+              complete rewriting of the code used to collect and display
+              interrupts statistics. These statistics are now collected
+              from the /proc/interrupts file instead of the /proc/stat
+              one, and are displayed for each CPU.<br>
+              It also includes a few bugfixes concerning sar and sadf's
+              PCP output format.<br>
+              This version is the last one from current development
+              series. Next version will be 12.6.0, starting a new stable
+              branch.<br>
+              <p style="font-weight: bold;">Sunday December 5th, 2021</p>
+              <font color="#ff6666">Sysstat 12.5.5 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.4.4 released
+                (stable version).</font><font color="#99ffff"><br>
+              </font>This is mainly a bugfix version (iostat, mpstat).
+              See the <a moz-do-not-send="true" href="changelog.html">Changelog
+
+
+
+
+
+
+
+
+
+                page</a> for more details.<br>
+              <p style="font-weight: bold;">Monday June 7th, 2021</p>
+              <font color="#ff6666">Sysstat 12.5.4 released (development
+                version).<br>
+              </font>This version brings better integration with PCP
+              (thanks go to Nathan Scott). It also adds a small
+              improvement to the pidstat command: Using option -e and
+              not specifying any interval or count values on the command
+              line will make pidstat show global task statistics when
+              the task terminates.<br>
+              <p style="font-weight: bold;">Sunday February 14th, 2021</p>
+              <font color="#ff6666">Sysstat 12.5.3 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.4.3 released
+                (stable version).</font><font color="#99ffff"><br>
+              </font>This also is mainly a bugfix version (sar, sadf).
+              One noteworthy new feature is the addition of Link Time
+              Optimization (LTO) support for smaller binary executables
+              (use --enable-lto to enable it when compiling sysstat).<br>
+              <p style="font-weight: bold;">Saturday December 19th, 2020</p>
+              <font color="#ff6666">Sysstat 12.5.2 released (development
+                version).<br>
+              </font><font color="#99ffff">Sysstat 12.4.2 released
+                (stable version).</font><font color="#99ffff"><br>
+              </font>I felt compelled to release this new version
+              because of an annoying bug concerning structures alignment
+              on 32 bit systems. It made <i>saDD</i> datafiles created
+              on 32 bit systems unreadable on 64 bit ones. And bugs
+              impacting datafiles structure and/or format are always
+              pernicious... So please upgrade. Thanks go to Aleksei
+              Nikiforov for reporting (and fixing) it..<br>
+              <p style="font-weight: bold;">Saturday November 21st, 2020</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6666">Sysstat 12.5.1 released (development
+                    version).</font><font color="#99ffff"><br>
+                  </font></font></font><font color="#99ffff"><font
+                  color="#66ffff"><font color="#99ffff"><font
+                      color="#99ffff"><font color="#66ffff"><font
+                          color="#66cccc"><font color="#99ffff">Sysstat
+                            12.4.1 released (stable version).</font></font><font
+                          color="#99ffff"><br>
+                        </font></font></font></font></font></font>Again,
+              this is mainly a bugfix release with some small
+              improvements lying around... Nothing to write home about,
+              but I thought it was time to make a release, the previous
+              one being almost 4 months old.<br>
+              <p style="font-weight: bold;">Friday July 31st, 2020</p>
+              <font color="#99ffff">Sysstat 12.4.0 released (stable
+                version).</font><br>
+              <font color="#99ffff">Sysstat 12.2.3 released (stable
+                version).</font><font color="#99ffff"><br>
+              </font>No breaking new features in sysstat release 12.4.0
+              but numerous small improvements over the last previous
+              version. Among them:<br>
+              <ul>
+                <li>All the sysstat commands now display their
+                  statistics in color by default when the output is
+                  connected to a terminal,</li>
+                <li>sar "pretty-prints" the device names by default,
+                  which means you won't need to use option -p with
+                  option -d to display the device names as they appear
+                  in /dev,</li>
+                <li>You can tell the sa2 script to wait for a random
+                  delay before executing in order to prevent a massive
+                  I/O burst on some systems,</li>
+                <li>You can also tell the sa1 script to insert a comment
+                  in current daily datafile saDD on system suspend and
+                  resume,</li>
+              </ul>
+              ... and more ! See the changelog available from the
+              Download page above for the full details.
+              <p style="font-weight: bold;">Friday May 8th, 2020</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff"><font
+                        color="#ff6666">Sysstat 12.3.3 released
+                        (development version).</font><br>
+                      Sysstat 12.2.2 released (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>Exciting new features in this
+              version include:<br>
+              <ul>
+                <li>sar/sadc collect and display Pressure-Stall
+                  Information statistics. These metrics have been added
+                  during the 4.20 development cycle of the Linux kernel.
+                  They can be displayed with "sar -q {CPU | LOAD |
+                  MEM}",</li>
+                <li>iostat has gained support devices managed by drivers
+                  in userspace like <i>spdk.</i> New flags (-f / +f)
+                  have been added so that the user can specify an
+                  alternate location for statistics files.</li>
+              </ul>
+              This version also includes various bug fixes. Enjoy!<br>
+              <p style="font-weight: bold;">Friday April 10th, 2020</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff"><font
+                        color="#ff6666">Sysstat 12.3.2 released
+                        (development version).</font><br>
+                    </font></font></font></font>pidstat and cifsiostat
+              commands have been largely rewritten in this version. They
+              now use a linked list and dynamic allocation for all the
+              items being monitored. Memory footprint should be much
+              smaller (especially for pidstat). Several bugs have also
+              been fixed in pidstat.<br>
+              <p style="font-weight: bold;">Friday December 27th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff"><font
+                        color="#ff6666">Sysstat 12.3.1 released
+                        (development version).</font><br>
+                      Sysstat 12.2.1 released (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>This version includes new
+              interesting features such as:<br>
+              <ul>
+                <li>The possibility to display system topology (logical
+                  core, socket and NUMA node numbers) with mpstat,</li>
+                <li>Statistics for flush I/O operations with iostat,</li>
+                <li>Support for SMB2 version of statistics file for the
+                  cifsiostat command.</li>
+              </ul>
+              It also fixes some bugs concerning iostat and sadf. Enjoy!<br>
+              <p style="font-weight: bold;">Monday September 30th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.7
+                      released (development version).</font><br>
+                  </font></font></font>The main new feature brought by
+              this version is the support for stable identifiers for sar
+              disks statistics. This stable identifier (which won't
+              change across reboots) is the WWN (<u>World-Wide Name</u>)
+              of the device.<br>
+              The sar and sadf commands included in this version are
+              also ready to read new formats of binary data files which
+              could arrive in a (hopefully) distant future.<br>
+              <p style="font-weight: bold;">Monday November 11th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff">Sysstat 12.2.0
+                      released (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>Nothing to get really excited
+              about this version which merely includes a few bugfixes
+              and adds small improvements to sar and sadf. But this
+              version marks the beginning of a new stable series, which
+              is why you should upgrade anyway :-)<br>
+              <p style="font-weight: bold;">Monday September 30th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.7
+                      released (development version).</font><br>
+                  </font></font></font>The main new feature brought by
+              this version is the support for stable identifiers for sar
+              disks statistics. This stable identifier (which won't
+              change across reboots) is the WWN (<u>World-Wide Name</u>)
+              of the device.<br>
+              The sar and sadf commands included in this version are
+              also ready to read new formats of binary data files which
+              could arrive in a (hopefully) distant future.<br>
+              <p style="font-weight: bold;">Wednesday August 14th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.6
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 12.0.6 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>In this development version, the
+              iostat command has been heavily modified for better
+              performance. In particular devices structures are now
+              dynamically allocated to make sure you won't miss a device
+              if many of them are added to the system while iostat is
+              running. Also sysstat test environment now includes a
+              large set of non regression tests for iostat.<br>
+              <p style="font-weight: bold;">Friday May 31st, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.5
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 12.0.5 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>This version completes the
+              support for PCP output format with sadf: All statistics
+              collected by sar/sadc can now be exported to a PCP archive
+              file.<br>
+              This version also includes now a simulation test
+              environment. This makes it possible to run non regression
+              tests with reproducible results because tests are run in a
+              simulated environment composed of kernel files with
+              predefined values.<br>
+              For now, only non regression tests have been added for
+              sar, sadc and sadf commands. Yet they have permitted to
+              identify several bugs which have been fixed here and also
+              backported to version 12.0.5.<br>
+              <p style="font-weight: bold;">Thursday April 18th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.4
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 12.0.4 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>This version adds initial support
+              for PCP (Performance Co-Pilot) output format for better
+              integration. sadf can now export part of its data to a PCP
+              archive file. This support is still experimental and will
+              be completed in next sysstat version.<br>
+              This version also fixes several bugs. The major ones are:<br>
+              <ul>
+                <li>autofs entries in /etc/mtab are now ignored so that
+                  sar/sadf don't mount the corresponding filesystems
+                  when reading their statistics.</li>
+                <li>JSON output for iostat and mpstat has been improved
+                  so that the commands can be interrupted with ^C
+                  (SIGINT signal) and we still get a valid JSON output.<br>
+                </li>
+              </ul>
+              <p style="font-weight: bold;">March 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#cc33cc" size="+1">Happy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      birthday sysstat ! :-)</font><br>
+                  </font></font></font>
+              <p class="MsoNormal"><font color="#ff9900"><span
+                    lang="EN-US">This year marks the 20<sup>th</sup>
+                    anniversary of the birth of sysstat! I released the
+                    first version on March 3<sup>rd</sup>, 1999 after I
+                    discovered the sar and iostat commands on an AIX
+                    system I was playing with. Unfortunately these
+                    commands were non-existent on Linux at that time, so
+                    I decided to write them starting from scratch.</span></font></p>
+              <font color="#ff9900"> </font>
+              <p class="MsoNormal"><font color="#ff9900"><span
+                    lang="EN-US">Since then sysstat has greatly
+                    improved, gaining many new features and has seen the
+                    introduction of new commands (sadf, pidstat…) to
+                    become a key player in diagnosing performance issues
+                    widely used on most Linux environments today. Here
+                    are a few numbers to illustrate the activity around
+                    sysstat: More than 34,000 lines of code, around 180
+                    versions released over the past 20 years, dozens of
+                    contributors from all over the world, and a total
+                    estimated cost to develop of $ 1,097,534 (estimated
+                    with sloccount on current upstream development
+                    branch).</span></font></p>
+              <font color="#ff9900"> <span lang="EN-US">Though a wife,
+                  two young children and a demanding job (in no way
+                  related to Linux</span><span
+                  style="font-family:Wingdings" lang="EN-US">! :-</span><span
+                  lang="EN-US">) ) now keep me busy for most of my time,
+                  I still certainly enjoy working on sysstat and hope
+                  things will go on for a long time.<br>
+                </span></font>
+              <p><font color="#ff9900"><span lang="EN-US">Thank you for
+                    your support.</span></font></p>
+              <p><font color="#ff9900"><span lang="EN-US"> </span></font>
+              </p>
+              <p><font color="#ff9900"><span lang="EN-US">Sebastien
+                    Godard (sysstat &lt;at&gt; orange &lt;dot&gt; fr)<br>
+                  </span></font></p>
+              <p><font color="#ff9900"><span lang="EN-US"></span></font>
+              </p>
+              <p style="font-weight: bold;">Friday February 15th, 2019</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.3
+                      released (development version).</font><br>
+                  </font></font></font>With this version, the user will
+              be able to select different color palettes to draw the SVG
+              graphs with sadf. One of those palettes can be fully
+              customized using an environment variable
+              (S_COLORS_PALETTE). See conversation on GitHub <a
+                href="https://github.com/sysstat/sysstat/issues/205"
+                target="_blank">here</a>.<br>
+              This version also adds a new flag (-f) to sadc to force
+              fdatasync() use when data are written (this feature has
+              been contributed by Kyle Walker).<br>
+              <p style="font-weight: bold;">Friday December 14th, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.2
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 12.0.3 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>This development version adds
+              support for <b>discard I/O statistics</b> to iostat and
+              sar commands. Statistics for discard operations have been
+              recently added to Linux kernel version 4.19. Previous
+              kernels didn't separate discard I/Os from writes in the
+              block layer statistics. iostat's reports are also modified
+              so that the user can better choose how things are
+              displayed, using switches like "-s" to get a narrow output
+              fitting on a 80-characters wide screen, or "-h" to get a
+              human-friendly output.<br>
+              Last, this version fixes several important bugs. Please
+              upgrade!<br>
+              <p style="font-weight: bold;">Saturday October 13th, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 12.1.1
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 12.0.2 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                    Sysstat 11.6.6 released (stable version) (EOL).<br>
+                    Sysstat 11.4.11 released (stable version)<font
+                      color="#66ffff"> (EOL).</font></font></font></font><font
+                color="#66ffff"><br>
+              </font>This version mainly includes bugfixes. The only
+              noteworthy new feature is the addition of two new metrics
+              to sar -H (Hugepage activity): HugePages_Rsvd and
+              HugePages_Surp. Also sadf has been made more robust to
+              corrupted datafiles, enabling it to complete its job even
+              if an unexpected end of datafile is met.<br>
+              <p style="font-weight: bold;">Monday August 6th, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff">Sysstat 12.0.1
+                      released (stable version).</font></font><font
+                    color="#99ffff"><br>
+                  </font></font></font>Version 12.0.1 fixes a silly,
+              nasty bug found in previous version (12.0.0) which could
+              make your sar daily datafiles (files named saDD and saved
+              in the /var/log/sa directory) unreadable by future sar
+              versions. This would be a pity :-) So please upgrade!<br>
+              <p style="font-weight: bold;">Friday August 3rd, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff">Sysstat 12.0.0
+                      released (stable version).</font></font><font
+                    color="#99ffff"><br>
+                    Sysstat 11.6.5 released (stable version).</font></font></font><font
+                color="#66ffff"><br>
+              </font>Version 12.0.0 mainly focuses on SVG output from
+              the sadf command, with a lot of bugfixes and the addition
+              of a new option ("showtoc") that will enable the user to
+              quickly navigate through graphs.<br>
+              Version 12.0.0 is also the first stable version that
+              includes the new, compact and flexible binary format for
+              sar.<br>
+              <p style="font-weight: bold;">Friday June 1st, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 11.7.4
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 11.6.4 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                    Sysstat 11.4.10 released (stable version).</font></font></font><font
+                color="#66ffff"><br>
+              </font><font color="#66ffff"> </font>This version adds
+              several new options to control:<br>
+              <ul>
+                <li>The number of decimal places used by sysstat
+                  commands (sar, cifsiostat, iostat, mpstat and
+                  pidstat),</li>
+                <li>The network interfaces, block devices and
+                  filesystems for which statistics shall be displayed by
+                  sar or sadf.</li>
+              </ul>
+              Note that this version also redefines the metric kbmemused
+              (amount of used memory displayed by sar) to be consistent
+              with the output of commands such as top(1) and free(1).
+              See sar's manual page.<br>
+              <p style="font-weight: bold;">Friday April 6th, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 11.7.3
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 11.6.3 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                    Sysstat 11.4.9 released (stable version).</font></font></font><font
+                color="#66ffff"><br>
+              </font>This version has improved support for
+              offline/online CPU (sar/sadf and mpstat). It also adds a
+              new option to sar (option "-z") to omit output for any
+              devices for which there was no activity during the sample
+              period (this option already existed for iostat). Last it
+              contains several important bug fixes, among them:<br>
+              <ul>
+                <li><span style="font-size: 10pt;" lang="EN-US"><span
+                      style="mso-list:Ignore"><span style="font-style:
+                        normal; font-weight: normal; font-size: 7pt;
+                        line-height: normal; font-size-adjust: none;
+                        font-stretch: normal; font-feature-settings:
+                        normal; font-language-override: normal;
+                        font-kerning: auto; font-synthesis: weight
+                        style; font-variant: normal;"> </span></span></span>A
+                  possible crash related to the new binary format used
+                  by sar, which could happen when buffers needed to be
+                  reallocated to accomodate more devices added to the
+                  system,</li>
+                <li>The %CPU value displayed by pidstat for processes
+                  using more than 100% of a core.</li>
+              </ul>
+              <p style="font-weight: bold;">Monday February 12th, 2018</p>
+              <font color="#99ffff"><font color="#66ffff"><font
+                    color="#66cccc"><font color="#99ffff"><font
+                        color="#66ffff"><font color="#66cccc"><font
+                            color="#ff6666">Sysstat 11.7.2 released
+                            (development version).</font></font></font></font></font><br>
+                </font></font>After one additional month of hard work,
+              sysstat version 11.7.2 seems to be quite stable on my
+              machine. It should now be possible to use it safely on
+              production systems. BTW I told you that sar's data files
+              new binary format would be at least 25% smaller than with
+              previous versions. I could have even said 30% to 45%
+              smaller!<br>
+              Version 11.7.2 also includes a rewritten function that
+              will enable you to convert your old data files (from
+              versions 9.1.6 and later) to the up-to-date format
+              (11.7.2).<br>
+              Please upload, test and tell me if anything goes wrong.<br>
+              <p style="font-weight: bold;">Friday January 12th, 2018</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#66cccc"><font color="#ff6666">Sysstat 11.7.1
+                      released (development version).</font><br>
+                    <font color="#99ffff">Sysstat 11.6.2 released
+                      (stable version).</font></font><font
+                    color="#99ffff"><br>
+                    Sysstat 11.4.8 released (stable version).</font></font><br>
+                Sysstat 11.2.14 released (stable version) <b>[EOL]</b>.</font><br>
+              Version 11.7.1 includes major changes concerning sar’s
+              binary data file format and how sar works. Among them:<br>
+              <ul>
+                <li><span style="font-size: 10pt;" lang="EN-US"><span
+                      style="mso-list:Ignore"><span style="font-style:
+                        normal; font-weight: normal; font-size: 7pt;
+                        line-height: normal; font-size-adjust: none;
+                        font-stretch: normal; font-feature-settings:
+                        normal; font-language-override: normal;
+                        font-kerning: auto; font-synthesis: weight
+                        style; font-variant: normal;"> </span></span></span>A
+                  binary data file should take much less space on disk
+                  thanks to new optimizations on how values are stowed
+                  in memory. The space saved is estimated at least at
+                  25% compared to previous format.</li>
+                <li>Structures are no longer statically allocated,
+                  meaning that the system can now register as many new
+                  devices (disks, network interfaces, etc.) as needed
+                  and you will find all of them saved in your saXX data
+                  file (provided that you have selected the
+                  corresponding activities to collect). Previous version
+                  could lead to some devices being ignored and going
+                  unnoticed if no free structures were left.</li>
+                <li>Sar (and sadf) will now be able to read a binary
+                  data file whatever its endianness is: Both big-endian
+                  and little-endian files can be read by the same sar or
+                  sadf executable.</li>
+                <li>More flexibility has been added to sar’s binary data
+                  file format. I cannot promise that the format won’t
+                  change again in the future but it should now be
+                  possible to add new metrics or activities without
+                  making the format unreadable by older sar versions
+                  (starting with version 11.7.1). Older versions will be
+                  able to read newer formats but will display only the
+                  metrics they currently know.</li>
+              </ul>
+              <font color="#ff9900">Version 11.7.1 is a <b>development
+                  version</b>. As such, it is still <b>NOT</b> ready
+                for use in production. Yet I would really like to have
+                it tested by the maximum number of users and get
+                feedback! :-)</font>
+              <p class="MsoNormal"><u>NOTE:</u> The function provided by
+                sadf (option –c) to convert an old data file to the
+                up-to-date format has been temporarily inhibited. This
+                function will be working again in next sysstat version
+                (11.7.2).<br>
+              </p>
+              <p style="font-weight: bold;">Wednesday November 1st, 2017</p>
+              <font color="#99ffff"> Sysstat 11.6.1 released (stable
+                version).<br>
+                Sysstat 11.4.7 released (stable version).<br>
+                Sysstat 11.2.13 released (stable version).</font><br>
+              These versions fix the bugs found these past two months. I
+              release them now since the next major sysstat version
+              (11.7.1) is still under development and it could take some
+              time for me to complete. It will include deep changes to
+              sar's data files format.<br>
+              <p style="font-weight: bold;">Monday August 14th, 2017</p>
+              <font color="#99ffff"> Sysstat 11.6.0 released (stable
+                version).<br>
+                Sysstat 11.4.6 released (stable version).<br>
+                Sysstat 11.2.12 released (stable version).</font><br>
+              Version 11.6.0 (the first of a new stable series) mainly
+              focuses on the pidstat command, with the addition of two
+              new options: Option -e can be used to pass a program to
+              execute and make pidstat monitor it, whereas option -H
+              tells pidstat to display timestamps in seconds since the
+              Epoch.<br>
+              Also these versions revert a fix (added in previous
+              sysstat version to fix a possible sadc crash on ARM
+              architecture) that could cause segmentation faults in some
+              cases.<br>
+              <p style="font-weight: bold;">Wednesday July 5th, 2017</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.7 released (development
+                    version).</font><br>
+                  <font color="#99ffff">Sysstat 11.4.5 released (stable
+                    version).</font></font><br>
+                Sysstat 11.2.11 released (stable version).</font><br>
+              Improvements added here mainly concern the iostat command:
+              New metrics added to the extended statistics report, a new
+              switch (-s) to display a short (narrow) version of the
+              report that will fit in 80 characters wide screens, the
+              JSON output that now depends on options used... Also to be
+              noted: Several metrics (from iostat and sar) are now
+              expressed in kilobytes instead of sectors.<br>
+              Last but not least, this development version includes a
+              set of bugfixes that you will also find in the 11.4.x and
+              11.2.x series.<br>
+              <p style="font-weight: bold;">Wednesday May 10th, 2017</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.6 released (development
+                    version).</font><br>
+                  <font color="#99ffff">Sysstat 11.4.4 released (stable
+                    version).</font></font><br>
+                Sysstat 11.2.10 released (stable version).</font><br>
+              The main new feature added to sysstat version 11.5.6
+              concerns the mpstat command: It can now display statistics
+              based on NUMA nodes placement (see its new switch "-n").<br>
+              Other changes included here are bugfixes that have also
+              been backported to the 11.4.x and 11.2.x series.<br>
+              <p style="font-weight: bold;">Monday February 27th, 2017</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.5 released (development
+                    version).</font><br>
+                </font></font>This version includes some minor new
+              features, notably for the creation of SVG graphs with
+              sadf: The user can now put several charts on the same row
+              (option "packed" to be used with "sadf -O") and he can
+              also explicitly specify the canvas height (option
+              "height=...").<br>
+              Besides, a new metric (%wait field) has been added to the
+              CPU utilization report displayed by pidstat. This field
+              shows the percentage of CPU spent by the task while
+              waiting to run.<br>
+              <p style="font-weight: bold;">Wednesday January 11th, 2017</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.4 released (development
+                    version).</font><br>
+                  <font color="#99ffff">Sysstat 11.4.3 released (stable
+                    version).</font></font><br>
+                Sysstat 11.2.9 released (stable version).</font><br>
+              I have added a new output format to sadf (the "raw" output
+              format) that I personally needed for debugging purposes.
+              With this format, counters values are printed as read from
+              the kernel.<br>
+              This version also removes memory statistics displayed by
+              "sar -R" to keep only those displayed by "sar -r" (the
+              latter are those that are really meaningful).<br>
+              Last the development and stable versions include a patch
+              to better handle dynamically registered devices (disks,
+              network interfaces...)<br>
+              <p style="font-weight: bold;">Tuesday December 06th, 2016</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.3 released (development
+                    version).</font><br>
+                </font></font>Several new features have been added into
+              this development version. First a new metric, providing
+              available free memory, has been added to sar (it can be
+              displayed with option -r). Also a new option ("showidle")
+              can be used with sadf's option -O to display CPU %idle
+              state in SVG graphs created by sadf. Last a new option
+              ("--human") has been added to most sysstat commands (sar,
+              iostat, pidstat, etc.) to display sizes in a human
+              readable format: See the screenshot below...<br>
+              <br>
+              <img alt="Human readable output" src="human2.jpg"
+                height="147" width="854"><br>
+              <br>
+              <p style="font-weight: bold;">Friday November 04th, 2016</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.2 released (development
+                    version).</font><br>
+                  <font color="#99ffff">Sysstat 11.4.2 released (stable
+                    version).</font></font><br>
+                Sysstat 11.2.8 released (stable version).</font><br>
+              In this developement version, sar now reports statistics
+              for software-based network processing, based on data
+              collected from the <b>/proc/net/softnet_stat</b> file.
+              This will be particularly useful for the sysadmin as this
+              file's contents is not easy to read (values are printed in
+              hex) and proper documentation was lacking. Development and
+              stable versions also include their bunch of bug fixes. See
+              the changelog available from the download page.<br>
+              <br>
+              <p style="font-weight: bold;">Friday September 23rd, 2016</p>
+              <font color="#99ffff"> <font color="#66ffff"><font
+                    color="#ff6600">Sysstat 11.5.1 released (development
+                    version).</font><br>
+                  <font color="#99ffff">Sysstat 11.4.1 released (stable
+                    version).</font></font><br>
+                Sysstat 11.2.7 released (stable version).</font><br>
+              This development version adds JSON output to mpstat and
+              iostat commands. The development and stable versions also
+              fix two outstanding bugs: one concerning sadf ability to
+              convert an old datafile to up-to-date format,and the other
+              concerning pidstat which omitted kernel threads when using
+              -l option. Please upgrade.<br>
+              <br>
+              <p style="font-weight: bold;">Monday August 15th, 2016</p>
+              <font color="#99ffff"> Sysstat 11.4.0 released (stable
+                version).<br>
+                Sysstat 11.2.6 released (stable version).</font><br>
+              Only small bug fixes have been added into these versions.
+              Sysstat 11.4.0 is the first stable version including SVG
+              support for sar/sadf. Sysstat 11.2.6, from the previous
+              stable series, doesn't include SVG support. Enjoy!<br>
+              <br>
+              <p style="font-weight: bold;">Friday June 24th, 2016</p>
+              <font color="#ff6600">Sysstat 11.3.5 released (development
+                version).</font><br>
+              <font color="#99ffff">Sysstat 11.2.5 released (stable
+                version).</font><br>
+              This version concludes the addition of the new SVG
+              (Scalable Vector Graphics) output format to sadf. It is
+              now possible to draw graphs for almost every sar's
+              activity. This version also adds a new option (named
+              "oneday"), to be used with sadf's switch -O, to display
+              graphs data over a period of 24 hours. Last, this version
+              includes the usual set of bug fixes (also backported to
+              the stable 11.2.x branch).<br>
+              <br>
+              <p style="font-weight: bold;">Saturday May 14th, 2016</p>
+              <font color="#ff6600">Sysstat 11.3.4 released (development
+                version).</font><br>
+              <font color="#99ffff">Sysstat 11.2.4 released (stable
+                version).</font><br>
+              sadf can output an SVG graph for many more activities here
+              (fan speed and temperature sensors, I/O and transfer rate
+              statistics, network activities, etc.) Interestingly
+              enough, this version also adds a new switch to sadf (-O)
+              to pass extra options enabling the user to control SVG
+              output. Two such options are currently supported:
+              "autoscale" and "skipempty" (see <a href="man_sadf.html">sadf</a>(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              manual page).<br>
+              <br>
+              <p style="font-weight: bold;">Saturday April 9th, 2016</p>
+              <font color="#ff6600">Sysstat 11.3.3 released (development
+                version).</font><br>
+              <font color="#99ffff">Sysstat 11.2.3 released (stable
+                version).</font><br>
+              This version carries on improving SVG support by sadf: You
+              can now draw graphs for CPU statistics (see a sample
+              output below), CPU frequency statistics, memory and swap
+              statistics, and queue length and load average statistics.<br>
+              <br>
+              <img alt="Graph for CPU statistics" src="cpugraph.jpg"
+                height="250" width="845"><br>
+              <p style="font-weight: bold;">Sunday March 13th, 2016</p>
+              <font color="#ff6600">Sysstat 11.3.2 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.2.2
+                released (stable version).</span><br>
+              This version improves SVG support by sadf, with 3 more
+              activities for which graphs can now be drawn: Paging
+              activity, network interfaces statistics and swapping
+              statistics. SVG output has been updated to make it fully
+              compliant with SVG 1.1 standard. Last, several
+              longstanding bugs have been fixed here and also included
+              in the stable 11.2.2 version.<br>
+              <p style="font-weight: bold;">Sunday February 21st, 2016</p>
+              <font color="#ff6600">Sysstat 11.3.1 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.2.1.1
+                released (stable version).</span><br>
+              The sar and sadf tools in this development version have
+              been largely reworked to prepare the addition of a new
+              output format to sadf: <b>SVG</b> <b>(Scalable Vector
+                Graphics).</b> At the present time, graphs can be
+              generated only for task creation and switching activity as
+              a "proof of concept" (this corresponds to the output of
+              sar -w). <a target="_blank" href="graph.html">Here is a
+                sample graph</a> that you can get with "sadf -g
+              /var/log/sa/saDD -- -w &gt; graph.svg". Other sar
+              activities will be added in the next sysstat versions to
+              come. <font color="#ff0000">Ultimately you will be able
+                to draw graphs using sysstat's standard tools (sar and
+                sadf)! <font color="#ffff00">Life is cool...! :-)</font></font><br>
+              <p style="font-weight: bold;">Sunday December 27th, 2015</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.2.0
+                released (stable version).</span><br>
+              This version is the first one of a new stable series,
+              including all the new features from the previous 11.1.x
+              development series. Various bugs have been fixed and small
+              improvements added since the last 11.1.8 version. Best
+              wishes for the festive season! :-)<br>
+              <p style="font-weight: bold;">Friday October 23rd, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.8 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.8
+                released (stable version).</span><br>
+              This development version adds color support for pidstat,
+              tapestat and cifsiostat commands. All sysstat commands now
+              support smart output colorization for easier statistics
+              reading. It's also possible to customize the colors with
+              the S_COLORS_SGR environment variable. Read the manual
+              pages to know how to use it. Enjoy!<br>
+              <p style="font-weight: bold;">Sunday September 20th, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.7 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.7
+                released (stable version).</span><br>
+              The iostat, mpstat and sar commands can now display their
+              statistics in <b>color</b> on the terminal. It's a nice
+              feature I've had in mind for a long time. Colors are
+              selected depending on the values to display (eg. zero or
+              non zero value; low / medium / high percentage value...).
+              To enable this feature, just set the S_COLORS environment
+              variable. Here is a sample output from the mpstat command:<br>
+              <br>
+              <img alt="" src="color.jpg" height="187" width="688"><br>
+              I plan to allow the user to cutomize the colors in a
+              future sysstat release.<br>
+              This version also includes important fixes for the new
+              tapestat command and also for pidstat.<br>
+              <p style="font-weight: bold;">Monday August 24th, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.6 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.6
+                released (stable version).</span><br>
+              This development version includes a new command: <b>tapestat.</b>
+              tapestat is aimed at displaying statistics for tape drives
+              connected to the system. It requires the newest kernel
+              version 4.2 (which has still not been released as of this
+              writing) to work. This new command has been contributed by
+              Shane Seymour from HP.<br>
+              <p style="font-weight: bold;">Friday June 12th, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.5 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.5
+                released (stable version).</span><br>
+              This version adds support for Fibre Channel HBA statistics
+              (contributed by Steve Kay). It also includes its bunch of
+              fixes based on static analysis reported by Coverity.<br>
+              <p style="font-weight: bold;">Tuesday April 7th, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.4 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.4
+                released (stable version).</span><br>
+              Lots of bug fixes and improvements here. Peter Schiffer,
+              Steve Kay and Dimitrios Apostolou are the main
+              contributors for this release. Among the new features, you
+              will now be able to display the mountpoint name instead of
+              the filesystem name when displaying filesystem statistics
+              with sar. And this version also includes sargraph2 in the
+              contrib directory, a promising new plotting tool working
+              with sar and contributed by Dimitrios.<br>
+              <p style="font-weight: bold;">Friday February 13th, 2015</p>
+              <font color="#ff6600">Sysstat 11.1.3 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.3
+                released (stable version).</span><br>
+              Five new metrics have been added to memory statistics
+              displayed by sar. You now have to enter "sar -r ALL" to
+              display all the memory metrics as there are many of them
+              now (entering only "sar -r" displays the usual memory
+              metrics).<br>
+              Sysstat 11.1.3 has also undergone a complete Coverity
+              static analysis (thanks go to Peter Schiffer from RedHat),
+              resulting in many small fixes being included here.<br>
+              Last some work has been done with the configure script to
+              make it easier for distro maintainers to package sysstat.
+              Enjoy!<br>
+              <p style="font-weight: bold;">Sunday October 19th, 2014</p>
+              <font color="#ff6600">Sysstat 11.1.2 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.2
+                released (stable version).</span><br>
+              Version 11.1.2 includes two new commands in the contrib
+              directory: irqtop (contributed by Robert Elliott from HP),
+              which monitors differences in /proc/interrupts and
+              /proc/softirqs per CPU along with CPU statistics, and
+              irqstat (contributed by Lance Shelton from
+              SanDisk/Fusion-io) designed for NUMA systems with many
+              processors. These two commands should be merged in a
+              future sysstat version.<br>
+              Apart from that, this version includes mainly bug fixes
+              (which you can find in the stable 11.0.2 version).<br>
+              <p style="font-weight: bold;">Saturday August 30th, 2014</p>
+              <font color="#ff6600">Sysstat 11.1.1 released (development
+                version).</font><br>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.1
+                released (stable version).</span><br>
+              From now on I will maintain two branches concurrently: one
+              for the stable versions of sysstat including only bug
+              fixes, and one for the development versions including all
+              the newest features (and also the bug fixes added to the
+              stable branch). A development version and a stable version
+              will always be released at the same time.<br>
+              Wrt sysstat 11.1.1, the main new feature here is the
+              addition of a new switch to sadf (-c) that enables the
+              user to convert a binary datafile with an old format (at
+              least 9.1.6) to the up-to-date format (which is 11.1.1 as
+              of today).<br>
+              <p style="font-weight: bold;">Tuesday June 17th, 2014</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 11.0.0
+                released (stable version).</span><br>
+              Sysstat is back with a stable version. This one includes
+              interesting new features. First the pidstat command has
+              been enhanced with the addition of two new options: -R (to
+              display task scheduling priority and policy information)
+              and -G (to filter processes by name, displaying all
+              threads of matching processes). Then new enhancements have
+              been brought to sar, sadc and sadf with regards to
+              standard system activity daily data files: These may now
+              be named "saYYYYMMDD" instead of "saDD" using sar's and
+              sadc's option -D, and they can be located in a directory
+              which can be different from the standard /var/log/sa
+              place. The new directory can be set in an environment
+              variable (SA_DIR, used by sa1/sa2 scripts) or directly
+              given on the command line to sar/sadc/sadf.<br>
+              <p style="font-weight: bold;">Tuesday March 18th, 2014</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.3.1
+                released (development version).</span><br>
+              I had to switch back to a development version because of a
+              change of sar's datafiles format. But this is (really) for
+              a good cause... After a period of hard work, this version
+              of sysstat includes a long awaited feature: sar can now
+              take into account a change of CPU count in its datafiles.
+              On virtual machine, after CPU change (e.g. power off&nbsp;
+              machine -&gt; add 1 CPU -&gt; power on machine), you will
+              no longer lose data (from today) from the current saXX
+              file. The restart mark (this is the LINUX RESTART message
+              inserted when sadc is called without any parameters) will
+              be used by sar to know that CPU count has changed.<br>
+              Note that I plan to go back to a stable series for next
+              sysstat version (which will be 11.0.0).<br>
+              <p style="font-weight: bold;">Sunday January 19th, 2014</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.2.1
+                released (stable version).</span><br>
+              In this version, pidstat I/O statistics includes a new
+              metric giving per-task block I/O delays. There are also
+              some other small improvements: The addition of a new
+              option to configure script (--enable-copy-only) or the
+              data file creation date being now displayed by sadf.<br>
+              <p style="font-weight: bold;">Sunday November 3rd, 2013</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.2.0
+                released (stable version).</span><br>
+              This is yet another stable series! This version mainly
+              focuses on pidstat, with several bug fixes and the
+              addition of a new option (-v) enabling the user to display
+              the number of threads and file descriptors associated with
+              tasks.<br>
+              <p style="font-weight: bold;">Friday September 13th, 2013</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.7
+                released (development version).</span><br>
+              Various fixes all around here. And worth noting is the
+              addition of a new metric to sar network devices
+              statistics: %ifutil, giving the utilization percentage of
+              the network interface cards. Download and enjoy!<br>
+              <p style="font-weight: bold;">Sunday June 9th, 2013</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.6
+                released (development version).</span><br>
+              The main new feature added here is the ability for sar to
+              display filesystems statistics (blocks and inodes
+              utilization) with its new option "-F". Also several
+              (small) bugs have been fixed.<br>
+              <p style="font-weight: bold;">Thursday April 25th, 2013</p>
+              <font color="#ff0000"><b>Good news!</b></font> Sysstat is
+              now on <a href="https://github.com" target="_blank">GitHub</a>
+              and I have set up a <a
+                href="https://github.com/sysstat/sysstat"
+                target="_blank"> public repository</a> available for all
+              of you willing to contribute!<br>
+              <p style="font-weight: bold;">Sunday March 31st, 2013</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.5
+                released (development version).</span><br>
+              This version fixes some more bugs. We found that systemd
+              unit file could no longer be installed because a macro
+              wasn't expanded in configure script. This is fixed here.
+              Also mpstat has been updated so that the number of
+              interrupts per processor actually add up to the number
+              displayed for CPU "all".<br>
+              <p style="font-weight: bold;">Friday March 8th, 2013</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.4
+                released (development version).</span><br>
+              There are two main improvements in this version: The first
+              one concern commands like sar, pidstat and mpstat which
+              now display their average statistics data when they
+              receive a SIGINT signal (control-c). The second one is
+              again for pidstat: pidstat now displays the UID number for
+              all tasks being monitored. A new option (-U) has also been
+              added so that the name of the real user owning the task
+              can be displayed instead of the UID.<br>
+              <p style="font-weight: bold;">Sunday December 23rd, 2012</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.3
+                released (development version).</span><br>
+              This is mainly a bugfix release. What is worth noting here
+              is the format change for network and IPv4/IPv6 counters
+              which are now 64-bit wide to keep in sync with current
+              Linux kernels. As a consequence this breaks compatibility
+              with older sar data files format for those statistics (and
+              only those ones).<br>
+              OK. Pick it up from under the Christmas tree and enjoy...<br>
+              <p style="font-weight: bold;">Saturday October 6th, 2012</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.2
+                released (development version).</span><br>
+              Two new metrics have been added here: the time spent by
+              processors running a niced guest (displayed as "%gnice" by
+              sar -u and mpstat) and the amount of memory waiting to get
+              written back to disk (displayed as "kbdirty" by sar -r).
+              This version also includes support for "systemd", the
+              system and service manager intended to replace the init
+              daemon for Linux.<br>
+              <p style="font-weight: bold;">Sunday July 29th, 2012</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.1.1
+                released (development version).</span><br>
+              Big thanks go to Peter Schiffer from Redhat for his
+              contribution to this version, the first one of a new
+              development series. One of his patches adds persistent
+              device names support to sar and iostat. As a consequence
+              it is now possible to display (and specify) a device using
+              his label, UUID, or any other type for which a directory
+              is present in /dev/disk. Unrelated to this, I have also
+              added a new way to tell sar from which daily data file he
+              should display stats. Before you had to use something like
+              <small><font face="Courier New, Courier, monospace">"sar
+                  -f /var/log/sa/saDD [...]</font></small>". It's now
+              possible to enter <small><font face="Courier New,
+                  Courier, monospace">"sar -1 [...]</font></small>" to
+              display stats from the daily data file of yesterday. Of
+              course you can enter any number (-3, -12, etc.) to show
+              data of that days ago. Full changelog available from the
+              download page. Have fun :-)<br>
+              <p style="font-weight: bold;">Wednesday May 16th, 2012</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.5
+                released (stable version).</span><br>
+              An interesting new feature has been added to iostat here:
+              iostat can now display consolidated statistics for one or
+              several groups of devices. This should prove useful for
+              machines with lots of disks. Apart from that, this version
+              includes some bug fixes for sadc and sadf, and a new
+              translation file for Croatian people.<br>
+              <p style="font-weight: bold;">Wednesday March 7th, 2012</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.4
+                released (stable version).</span><br>
+              This version includes bugfixes for sar and iostat: Virtual
+              devices are no longer taken into account in sar -b
+              results, and iostat can now display target device
+              information when a symbolic link is specified as a
+              parameter. A new option (--disable-stripping) has also
+              been added to configure to tell it to not strip object
+              files. Last, NLS has been updated with the addition of
+              Serbian translation.<br>
+              <p style="font-weight: bold;">Sunday November 27th, 2011</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.3
+                released (stable version).</span><br>
+              The main change in version 10.0.3 is the addition of JSON
+              (JavaScript Object Notation) output format to sadf. This
+              format is easy to read but less verbose than XML. Try it
+              with "sadf -j /your/sar/datafile".<br>
+              <p style="font-weight: bold;">Sunday August 28th, 2011</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.2
+                released (stable version).</span><br>
+              No new groundbreaking features in this release (hey, this
+              is a stable series!) sadf has been heavily modified to
+              make it easier to add new report formats later. I'm not
+              very happy with the result anyway as its design is still
+              not completely generic. Apart from that, a new option ("-P
+              ON") has been added to mpstat. It indicates that
+              statistics should be displayed only for online processors.<br>
+              <p style="font-weight: bold;">Friday June 3rd, 2011</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.1
+                released (stable version).</span><br>
+              A new feature has been added to sar in this version. It
+              can now take a snapshot of all the USB devices currently
+              plugged into the system. Although this is a discrete
+              monitoring process by nature, it should help the sys
+              admins to detect the introduction of USB storage devices
+              (eg. external hard drives, flash drives, thumb drives...)
+              and close some potential security vulnerabilities. This
+              version also includes the usual bunch of bugfixes (sar,
+              sadf, cifsiostat...) Just go to the download page and
+              enjoy!
+              <p style="font-weight: bold;">Tuesday March 15th, 2011</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 10.0.0
+                released (stable version).</span><br>
+              This is mainly a bugfix release. Several bugs have been
+              fixed in nfsiostat and cifsiostat commands (thanks go to
+              Masanari IIda for reporting them and Ivana Varekova from
+              Redhat for fixing them). Also worth noting is that only
+              sadc is now linked with lm_sensors library when needed.
+              Read the full changelog to know all the changes included
+              in this version.<br>
+              <p style="font-weight: bold;">Sunday December 26th, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.7
+                released (development version).</span><br>
+              OK. So I took my Santa Claus dress to put this new version
+              of sysstat under the Christmas tree. This one includes
+              some new metrics for sar (amount of active and inactive
+              memory, processes blocked waiting for I/O to complete) and
+              also various optimizations and improvements. This should
+              be the last version from the development series ; expect
+              version 10.0.0 to be released around the month of
+              February. Enjoy!<br>
+              <p style="font-weight: bold;">Wednesday November 10th,
+                2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.6
+                released (development version).</span><br>
+              Lots of changes in this version. First, new metrics have
+              been added to sar and sadc: These are hugepages
+              utilization statistics, and average CPU clock frequency.
+              To get the latter, you will need the cpufreq-stats driver
+              compiled in your kernel. Then you should note that, after
+              two years and a half of backward compatibility, this
+              version breaks the format of sar daily data files again.
+              This was made necessary for the inclusion of average CPU
+              clock frequency. So I also took advantage of this to add a
+              "compatibility marker" for each activity available in
+              file, so that a future change concerning one activity only
+              hits this activity and not the whole file.<br>
+              <p style="font-weight: bold;">Sunday September 12th, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.5
+                released (development version).</span><br>
+              Other new metrics have been added to the power management
+              group of statistics again. In particular this version adds
+              voltage inputs stats to sar data. Please test it!<br>
+              <p style="font-weight: bold;">Thursday July 29th, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.4
+                released (development version).</span><br>
+              New metrics have been added to the power management group
+              of statistics in sar (patch from Jan Kaluza from Redhat).
+              This version enables you to monitor fans speed and devices
+              temperature. You will need the libsensors library (part of
+              the <a href="http://www.lm-sensors.org/" target="_blank">lm_sensors</a>
+              project) installed for that.<br>
+              <p style="font-weight: bold;">Sunday June 27th, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.3
+                released (development version).</span><br>
+              Lots of new features in this release. Two new commands
+              have been added (nfsiostat and cifsiostat) enabling the
+              user to display I/O statistics for NFS and CIFS
+              filesystems (courtesy Ivana Varekova from Redhat). Other
+              improvements concern mainly pidstat: It's now possible to
+              select tasks using a regular expression with option -C. A
+              new option has also been added to pidstat to display stack
+              statistics (patch by Mario Konrad).<br>
+              <p style="font-weight: bold;">Sunday May 23rd, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.1.2
+                released (development version).</span><br>
+              New fields have been added to iostat's extended
+              statistics, giving the average time for read and write
+              requests to be served (thanks go to Jérôme Marchand from
+              Redhat for his help with that). Note that those fields
+              should not be mistaken for read and write service times as
+              they also include the time spent by the requests in
+              queue... Also with this version, tickless CPUs will no
+              longer be displayed as offline processors, but as 100%
+              idle ones.<br>
+              <p style="font-weight: bold;">Sunday February 28th, 2010</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.0.6.1
+                released (stable version).<br>
+                Sysstat 9.1.1 released (development version).</span><br>
+              More than 3 months have passed since the last sysstat
+              release. After more than 10 years spent working on
+              sysstat, I still certainly enjoy working on this project
+              although a wife and two children have now made it a bit
+              more difficult... Even if things go much more slowly now,
+              I decided to start a new development series, so here is
+              version 9.1.1, ready for you to test. See the release
+              notes available from the download page. Note that from now
+              on, sysstat will no longer support kernels older than 2.6.
+              This enabled me to get rid of many lines of code...<br>
+              <p style="font-weight: bold;">Wednesday November 11th,
+                2009</p>
+              <span style="color: rgb(153, 204, 255);">Sysstat 9.0.6
+                released (stable version).</span><br>
+              Apart from small bug fixes, this version improves the use
+              of sadf with its -x option (displaying XML output): it is
+              now possible to specify a starting and ending time with
+              options -s and -e. Interval and count parameters are also
+              taken into account by sadf -x. Oh, and this version also
+              includes a new tool (sargraph) from Lans Carstensen to
+              make graphs based on XML output from sadf! <br>
+              <br>
+              <div style="text-align: center;"> <a
+                  href="old_index.html">Old news</a><br>
+              </div>
+            </div>
+            <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
