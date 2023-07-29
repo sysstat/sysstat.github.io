@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+   </head>
+   <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
+   vlink="#33cc00" link="#33ff33" alink="#66ff99">
+      <style>
+         pre {
+            font-size: 120%
+         }
+         code {
+            color: #fd6614;
+            font-size: 120%;
+         }
+      </style>
+      <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="2" border="0">
+	 <tbody>
+	    <tr>
+		<td style="vertical-align: middle; text-align: left; width: 80%; background-repeat: repeat-x;" class="bandeau">
+		   <img style="width: 375px; height: 157px;" alt="bandeau1" src="/bandeau11.jpg">
+		   <img style="width: 333px; height: 156px;" alt="bandeau2" src="/bandeau22.jpg">
+		</td>
+		<td style="vertical-align: bottom; text-align: center;">
+		   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		      <input name="cmd" value="_s-xclick" type="hidden">
+		      <input name="hosted_button_id" value="45U6F9R73ESFQ" type="hidden">
+		      <input src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+		             name="submit" alt="PayPal - The safer, easier way to pay online!"
+		             type="image">
+		      <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+		           width="1" height="1" border="0">
+		   </form>
+            </td>
+	    </tr>
+	    <tr>
+	       <td id="menuhaut" colspan="2" rowspan="1">
+		  <hr style="height: 12px; width: 100%;">
+		  <div style="text-align: center; color: rgb(51, 255, 51);">
+		     <font size="+1">
+			<a href="/index.html">News</a>&nbsp;
+			|&nbsp;
+			<a href="/features.html">Features</a>&nbsp;
+			|&nbsp;
+			<a href="/dtd_xsd.html">DTD/XSD</a>&nbsp;
+			|&nbsp;
+			<a href="https://github.com/sysstat/sysstat" target="_blank">GitHub</a>&nbsp;
+			|&nbsp;
+			<a href="documentation.html">Documentation</a>&nbsp;
+			|&nbsp;
+			<a href="tutorial.html">Tutorial</a>&nbsp;
+			|&nbsp;
+			<a href="/faq.html">FAQ</a>&nbsp;
+			|&nbsp;
+			<a href="mailto:sysstat%20%3Cat%3E%20orange.fr">Contact</a>
+		    </font>
+		 </div>
+	      </td>
+	    </tr>
+         </tbody>
+      </table>
+      <br><br>
+	 <span style="text-align: center; color: rgb(255, 255, 0);">
+   <h1>Features</h1>
+</span>
+<hr style="width: 100%; height: 2px;">
+<h3>Sysstat's main features</h3>
+<ul>
+   <li>Includes four groups of monitoring tools (sar / sadc
+       / sadf, iostat / tapestat / cifsiostat, mpstat,
+       pidstat) for global system performance analysis.</li>
+   <li>Can monitor a huge number of different metrics:</li>
+</ul>
+<ol>
+   <ol>
+      <li>Input / Output and transfer rate statistics
+          (global, per device, per partition, per network
+          filesystem and per Linux task / PID).</li>
+      <li>CPU statistics (global, per CPU, per NUMA nodes
+          and per Linux task / PID), including support for
+          virtualization architectures.</li>
+      <li>Memory, hugepages and swap space utilization statistics.</li>
+      <li>Virtual memory, paging and fault statistics.</li>
+      <li>Per-task (per-PID) memory and page fault statistics.</li>
+      <li>Global CPU and page fault statistics for tasks and all
+          their children.</li>
+      <li>Process creation activity.</li>
+      <li>Interrupt statistics (global, per CPU and per
+          interrupt, including potential APIC interrupt
+          sources, hardware and software interrupts).</li>
+      <li>Extensive network statistics: network interface
+          activity (number of packets and kB received and
+          transmitted per second, etc.) including failures
+          from network devices; network traffic statistics for
+          IP, TCP, ICMP and UDP protocols based on SNMPv2
+          standards; support for IPv6-related protocols.</li>
+      <li>Fibre Channel traffic statistics.</li>
+      <li>Software-based network processing (softnet) statistics.</li>
+      <li>NFS server and client activity.</li>
+      <li>Sockets statistics.</li>
+      <li>Run queue and system load statistics.</li>
+      <li>Kernel internal tables utilization statistics.</li>
+      <li>System and per Linux task switching activity.</li>
+      <li>Swapping statistics.</li>
+      <li>TTY devices activity.</li>
+      <li>Power management statistics (instantaneous and
+          average CPU clock frequency, fans speed, devices
+          temperature, voltage inputs)</li>
+      <li>USB devices plugged into the system.</li>
+      <li>Filesystems utilization (inodes and blocks).</li>
+      <li>Tape drives statistics.</li>
+      <li>Pressure-Stall Information statistics.</li>
+   </ol>
+</ol>
+<ul>
+   <li>Can generate graphs (SVG format - Scalable Vector
+       Graphics) that can be displayed in your favorite web browser!</li>
+   <li>Average statistics values are calculated over the sampling period.</li>
+   <li>Most system statistics can be saved in a file for future inspection.</li>
+   <li>Allows to configure the length of data history to keep.</li>
+   <li>On the fly detection of new devices (disks, network
+       interfaces, etc.) that are created or registered dynamically.</li>
+   <li>Support for UP and SMP machines, including machines
+       with hyperthreaded or multi-core processors.</li>
+   <li>Support for hotplug CPUs (it detects automagically
+       processors that are disabled or enabled on the fly)
+       and tickless CPUs.</li>
+   <li>Works on many different architectures, whether 32- or 64-bit.</li>
+   <li>Needs very little CPU time to run (written in C).</li>
+   <li>System statistics collected by sar/sadc can be
+       exported in various different formats (CSV, XML, JSON,
+       SVG, etc.). DTD and XML Schema documents are included
+       in sysstat package. JSON output format is also
+       available for mpstat and iostat commands.</li>
+   <li>sar data can also be exported by sadf to PCP
+       (Performance Co-Pilot) archive.</li>
+   <li>Smart color output for easier statistics reading.</li>
+   <li>Internationalization support (sysstat has been
+       translated into numerous different languages). Sysstat
+       is now part of the
+       <a href="http://translationproject.org/" target="_blank">Translation Project</a>.</li>
+   <li>Sysstat commands can automatically select the unit
+       used to display sizes for easier reading (see option <code>--human</code>).</li>
+   <li>Many programs available on the internet to use
+       sysstat's data to make graphs (one of them, isag, is
+       included in sysstat).</li>
+   <li>iostat has support for devices managed by drivers in userspace like <i>spdk</i>.</li>
+</ul>
+If you think that other statistics could be useful for the sys admin
+and so should be added to sysstat, please tell me.
+<br>
+<br>
+Last but not least, the <a href="/matrix.html">Matrix of activities</a> lists
+all the possible activities for sar and the corresponding options to use with sar
+and sadc.
+<br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3>Main features and improvements added to the latest sysstat versions</h3>
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 12.6 stable series
+</span>
+- Why should I upgrade from sysstat 12.4.x to 12.6.x?
+<ul>
+   <li>sar and sadf commands have been updated so
+       that persistent device names can be displayed with
+       filesystems statistics.</li>
+   <li>sar: Code used to collect and display interrupts
+       statistics has been completely reworked. Interrupts
+       are now read from <code>/proc/interrupts</code> file instead of
+       <code>/proc/stat</code> file. A list of interrupts can also be
+       entered on the command line using option <code>--int=</code>.</li>
+   <li>sar: A new metric (softnet network backlog) has been
+       added to A_NET_SOFT report.</li>
+   <li>Option <code>--rotate</code> has been added to sa1 script to make
+       it easier to handle file rotation.</li>
+   <li>Basic colorization has been added to sadf's output.</li>
+   <li>Link Time Optimization (LTO) is now supported when building sysstat.</li>
+   <li>A debug option (which can be selected with <code>-o debug</code>)
+       has been added to sadf's SVG output.</li>
+   <li>Monitoring a process with pidstat's option <code>-e</code> has been improved.</li>
+   <li>Option <code>--compact</code> has been added to iostat to
+       indicate that all metrics shall be displayed on a single line.
+   </li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 12.4 stable series
+</span>
+- Why should I upgrade from sysstat 12.2.x to 12.4.x?
+ <ul>
+   <li>sadc/sar now collect and display Pressure-Stall
+       Information (PSI) statistics (metrics added to Linux kernel 4.20).</li>
+   <li>iostat can now display flush I/O statistics
+       (statistics which have been made available in Linux kernel 5.5).</li>
+   <li>iostat can now display statistics for devices
+       managed by userspace drivers (e.g. spdk). New flags
+       (<code>-f</code>/<code>+f</code>) may be used to specify an alternate
+       location for statistics files.</li>
+   <li>mpstat has got a new switch (<code>-T</code>) to display system
+       topology: core, socket and node numbers. It is also
+       possible now to select individual CPU and nodes to be
+       displayed even when option <code>-A</code> (to display all possible
+       statistics) has been selected.</li>
+   <li>cifsiostat command has gained support for SMB2
+       version of statistics file.</li>
+   <li>pidstat and cifsiostat have been largely rewritten
+       for better performance.</li>
+   <li>A new option (<code>hz=</code>) has been added to sadf to
+       specify kernel's HZ value when an old binary <code>saDD</code>
+       datafile has to be converted to the up-to-date format.</li>
+   <li>All sysstat commands now display their statistics in
+       color by default when the output is connected to a terminal.</li>
+   <li>sar also pretty-prints the name of the devices
+       (those displayed with option <code>-d</code>) by default. A new
+       option (<code>--pretty</code>) has been added to cifsiostat,
+       sar and iostat.</li>
+   <li>sa1 script has been updated to insert a comment in
+       the current daily datafile on system suspend or resume.</li>
+   <li>It is now possible to tell sa2 script to wait for a
+       random delay before running. This can be useful to
+       prevent a massive I/O burst on some systems.</li>
+   <li>sysstat code has been made compliant with latest gcc version (v10).</li>
+   <li>Manual pages are now compressed by default when they are installed.</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 12.2 stable series
+</span>
+- Why should I upgrade from sysstat 12.0.x to 12.2.x?
+<ul>
+   <li>sar: A stable identifier has been added for disk
+       statistics. This stable identifier, which won't change
+       across reboots, is the device's World Wide Name (WWN).
+       New metrics have also been added to sar Huge Pages
+       statistics (<code>HugePages_Rsvd</code> and
+       <code>HugePages_Surp</code>).</li>
+   <li>sadc: It is now possible to unselect activities by
+       name (e.g. <code>sadc -S XALL,-A_PAGE</code> will collect all
+       possible activities except paging statistics). Also a
+       new flag (<code>-f</code>) has been added to force fdatasync()
+       use. Last, the timezone value is now saved in the
+       binary data files.</li>
+   <li>sadf has been improved to make it more robust to
+       corrupted datafiles.</li>
+   <li>SVG: New options have been added to sadf
+       (<code>customcol</code> and <code>bwcol</code>) to
+       enable the user to select
+       distinct color palettes to draw the graphs with
+       <code>sadf -g</code>. The color palette can also
+       be customized by the user.</li>
+   <li>PCP: sadf can now export sar data in the format
+       expected by PCP (Performance Co-Pilote).</li>
+   <li>iostat and sar have gained support for discard I/O
+       statistics which can be displayed on recent linux
+       kernels. iostat has also been largely rewritten for
+       better performance (device structures are now
+       dynamically allocated, iostat better handles the case
+       when devices are removed then inserted again in the system...)</li>
+   <li>A new simulation environment has been added to
+       sysstat to run non regression tests. This environment
+       allows for fast, reproducible tests. With the addition
+       of hundreds of tests, introduction of regressions in
+       new sysstat versions is now made more unlikely...</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 12.0 stable series
+</span>
+- Why should I upgrade from sysstat 11.6.x to 12.0.x?
+<br><br>
+Sysstat 12.0 includes major changes concerning sar’s
+binary data file format and how sar works. Among them:<br>
+<ul>
+   <li>A binary data file should take much less space on disk
+       thanks to new optimizations on how values are stowed
+       in memory. The space saved is estimated between 25%
+       and 45% compared to previous format.</li>
+   <li>Structures are no longer statically allocated,
+       meaning that the system can now register as many new
+       devices (disks, network interfaces, etc.) as needed
+       and you will find all of them saved in your <code>saDD</code> data
+       file (provided that you have selected the
+       corresponding activities to collect). Previous version
+       could lead to some devices being ignored and going
+       unnoticed if no free structures were left.</li>
+   <li>Sar (and sadf) will now be able to read a binary
+       data file whatever its endianness is: Both big-endian
+       and little-endian files can be read by the same sar or
+       sadf executable.</li>
+   <li>More flexibility has been added to sar’s binary data
+       file format which should now make it possible to add
+       new metrics or activities without making the format
+       unreadable by older sar versions (starting with version 11.7.1).</li>
+</ul>
+Other changes include:<br>
+<ul>
+   <li>Support for offline/online CPU has been improved
+       (for sar and mpstat). Also sar and sadf no longer
+       display offline CPU.</li>
+   <li>A new option (<code>-z</code>) has been added to sar to omit
+       output for any devices for which there was no activity
+       during the sample period.</li>
+   <li>Another new option (<code>-h</code>) has been added to sar to
+       make output easier to read by a human.</li>
+   <li>Options have been added to make it possible to
+       select network interfaces (<code>--iface=</code>), block devices
+       (<code>--dev=</code>) and filesystems (<code>--fs=</code>) for which
+       statistics shall be displayed by sar or sadf.</li>
+   <li>A new option (<code>showtoc</code>) can now be used with sadf
+       SVG output. This option displays, at the beginning of
+       the SVG file, the list of activities for which there
+       are graphs (table of contents).</li>
+   <li>The user can now select each individual activity
+       that will be collected by sadc.</li>
+   <li>It is now possible to select the number of decimal
+       places (in the range 0-2) used by every sysstat command.</li>
+   <li>National Language Support has been improved, with a
+       new Korean translation added.</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 11.6 stable series
+</span>
+- Why should I upgrade from sysstat 11.4.x to 11.6.x?
+<ul>
+   <li>sar can now display software-based network
+       processing statistics (softnet). New metrics have also
+       been added for other activities, e.g. 'available free
+       memory" with memory statistics.</li>
+   <li>A new option (<code>--human</code>) can be used with various
+       sysstat commands to make them display values in human
+       readable format.</li>
+   <li>New options can be used with <code>sadf -g</code> to enhance
+       graphs output: Option <code>showidle</code> can be used to
+       display CPU idle state in SVG graphs ; Option <code>packed</code>
+       tells sadf to allow multiple graphs on a row ; Option
+       <code>height=...</code> allows the user to explicitly specify
+       canvas height ; Option <code>showinfo</code> displays extra
+       information such as the date and the host name.</li>
+   <li>A new output format has been added to sadf to
+       display the raw contents of sar binary data files.</li>
+   <li>The iostat and mpstat commands can now display their
+       output in JSON format.</li>
+   <li>A range of CPU or interrupts can now be selected
+       with sar and mpstat commands.</li>
+   <li>The pidstat command has been improved: It now
+       displays <code>%wait</code> metric as part of CPU utilization
+       statistics. It also has a new switch (<code>-e</code>) which can be
+       used to pass a program to execute and make pidstat
+       monitor it. Last you can choose to display the
+       timestamps in seconds since the Epoch with its new <code>-H</code> switch.</li>
+   <li>The mpstat command can provide CPU statistics based
+       on NUMA node placement.</li>
+   <li>The iostat command has a new switch to display a
+       short (narrow) version of its reports that should fit
+       in 80 chars wide screens. New metrics have also been
+       added to its extended statistics report.</li>
+   <li>National Language Support has been improved, with a
+       new Friulian translation.</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 11.4 stable series
+</span>
+- Why should I upgrade from sysstat 11.2.x to 11.4.x?
+<ul>
+   <li>Sysstat 11.4 includes <b>SVG</b> <b>(Scalable Vector Graphics)</b>
+       support for sar/sadf. It is now
+       possible to draw graphs for (almost) every sar
+       activity using a maintained tool (sadf) which is part
+       of sysstat package. Extra options (<code>skipempty</code>,
+       <code>autoscale</code>, <code>oneday</code>) may be passed to sadf to
+       control SVG output.</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 11.2 stable series
+</span>
+- Why should I upgrade from sysstat 11.0.x to 11.2.x?
+<ul>
+   <li>A new command (<b>tapestat</b>) has been added to display
+       statistics for tape drives.</li>
+   <li>A new option (<code>-c</code>) has been added to sadf to enable
+       the user to convert an old system activity binary data
+       file (sysstat 9.1.6 at least) to the up-to-date format.</li>
+   <li>sar has now support for Fibre Channel HBA
+       statistics. New metrics have also been added to memory statistics.</li>
+   <li>All sysstat commands have now smart color output
+       support for easier statistics reading. Colors can be
+       customized by the user.</li>
+   <li>The obsolete nfsiostat command has been removed
+       (such a command already exists in the nfs-utils package).</li>
+   <li>sysstat is now regularly submitted for static
+       analysis provided by Coverity Scan. As a result,
+       numerous defects have been fixed and sysstat has now a
+       defect density (number of defects per 1000 lines of
+       code) lower than 0.1 as of this writing.</li>
+</ul>
+
+
+<span style="text-decoration: underline; color: rgb(140, 200, 240); font-weight: bold;">
+   Sysstat 11.0 stable series
+</span>
+- Why should I upgrade from sysstat 10.2.x to 11.0.x?
+<ul>
+   <li>sar, sadc and sadf commands can now take into
+       account a change of CPU count in binary data files
+       without losing data from current day.</li>
+   <li>The standard system activity daily data files used
+       by sar, sadc and sadf may now be named <code>saYYYYMMDD</code>
+       instead of <code>saDD</code>, where YYYY stands for the current
+       year, MM for the current month and DD for the current day.</li>
+   <li>It has been made easier for sar, sadc and sadf to
+       take into account alternate locations for standard
+       system activity daily data files (the default location
+       remains <code>/var/log/sa</code>).</li>
+   <li>systemd timer units can now be used instead of cron
+       jobs to launch sadc.</li>
+   <li>pidstat can now display task scheduling priority and
+       policy information (option <code>-R</code>).</li>
+   <li>pidstat can now display only processes whose name
+       matches a regular expression (option <code>-G</code>). All threads
+       of matching processes are displayed.</li>
+   <li>National Language Support improved: Added Galician
+       and Hungarian translations. </li>
+</ul>
+
+
+   </body>
+</html>

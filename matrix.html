@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+   </head>
+   <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
+   vlink="#33cc00" link="#33ff33" alink="#66ff99">
+      <style>
+         pre {
+            font-size: 120%
+         }
+         code {
+            color: #fd6614;
+            font-size: 120%;
+         }
+      </style>
+      <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="2" border="0">
+	 <tbody>
+	    <tr>
+		<td style="vertical-align: middle; text-align: left; width: 80%; background-repeat: repeat-x;" class="bandeau">
+		   <img style="width: 375px; height: 157px;" alt="bandeau1" src="/bandeau11.jpg">
+		   <img style="width: 333px; height: 156px;" alt="bandeau2" src="/bandeau22.jpg">
+		</td>
+		<td style="vertical-align: bottom; text-align: center;">
+		   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		      <input name="cmd" value="_s-xclick" type="hidden">
+		      <input name="hosted_button_id" value="45U6F9R73ESFQ" type="hidden">
+		      <input src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+		             name="submit" alt="PayPal - The safer, easier way to pay online!"
+		             type="image">
+		      <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+		           width="1" height="1" border="0">
+		   </form>
+            </td>
+	    </tr>
+	    <tr>
+	       <td id="menuhaut" colspan="2" rowspan="1">
+		  <hr style="height: 12px; width: 100%;">
+		  <div style="text-align: center; color: rgb(51, 255, 51);">
+		     <font size="+1">
+			<a href="/index.html">News</a>&nbsp;
+			|&nbsp;
+			<a href="/features.html">Features</a>&nbsp;
+			|&nbsp;
+			<a href="/dtd_xsd.html">DTD/XSD</a>&nbsp;
+			|&nbsp;
+			<a href="https://github.com/sysstat/sysstat" target="_blank">GitHub</a>&nbsp;
+			|&nbsp;
+			<a href="documentation.html">Documentation</a>&nbsp;
+			|&nbsp;
+			<a href="tutorial.html">Tutorial</a>&nbsp;
+			|&nbsp;
+			<a href="/faq.html">FAQ</a>&nbsp;
+			|&nbsp;
+			<a href="mailto:sysstat%20%3Cat%3E%20orange.fr">Contact</a>
+		    </font>
+		 </div>
+	      </td>
+	    </tr>
+         </tbody>
+      </table>
+      <br><br>
+	 <span style="text-align: center; color: rgb(255, 255, 0);">
+   <h1>Matrix of activities</h1>
+</span>
+<hr style="width: 100%; height: 2px;">
+The following table lists all the possible activities for sar:<br>
+<ul>
+   <li>the option that should be used with sar to display the
+       corresponding activity is given in column #3 ;</li>
+   <li>the option that should be used with sadc to collect the
+       corresponding activity is given in column #4. The
+       value "<i>(default)</i>" means that the activity is
+       always collected by sadc and that no specific option
+       is needed for that ;</li>
+   <li>whether SVG graphs can be created by sadf for the corresponding
+       activity (this list will be updated as SVG support improves).</li>
+</ul>
+<table style="text-align: center; background-color: rgb(50, 50, 50); vertical-align: middle;"
+       height="1279" cellspacing="2" cellpadding="2" border="1" width="1047" nowrap="nowrap">
+   <tbody>
+      <tr style="font-weight: bold; font-style: italic;
+          background-color: rgb(51, 102, 102);">
+         <td>Activity</td>
+         <td>Report name</td>
+         <td>Option to display with sar</td>
+         <td>Option to collect with sadc</td>
+         <td>Available as SVG graphics</td>
+         <td>Notes</td>
+      </tr>
+      <tr>
+         <td>Paging activity</td>
+         <td><b>A_PAGE</b></td>
+         <td><code>-B</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>I/O and transfer rate</td>
+         <td><b>A_IO</b></td>
+         <td><code>-b</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Disks activity</td>
+         <td><b>A_DISK</b></td>
+         <td><code>-d</code></td>
+         <td><code>-S DISK</code></td>
+         <td>Yes</td>
+         <td>sadc: <code>-S XDISK</code> also collects activity</td>
+      </tr>
+      <tr>
+         <td>Partitions activity</td>
+         <td><b>A_DISK</b></td>
+         <td><code>-d</code></td>
+         <td><code>-S XDISK</code></td>
+         <td>Yes</td>
+         <td>sar: Activity displayed only when data read from a file</td>
+      </tr>
+      <tr>
+         <td>Filesystems activity</td>
+         <td><b>A_FS</b></td>
+         <td><code>-F</code></td>
+         <td><code>-S XDISK</code></td>
+         <td>Yes</td>
+         <td>sar: <code>-F MOUNT</code> displays mountpoint names instead of filesystem names</td>
+      </tr>
+      <tr>
+         <td>Hugepages activity</td>
+         <td><b>A_HUGE</b></td>
+         <td><code>-H</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Interrupts activity</td>
+         <td><b>A_IRQ</b></td>
+         <td><code>-I</code></td>
+         <td><code>-S INT</code></td>
+         <td>No</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Instantaneous CPU clock frequency</td>
+         <td><b>A_PWR_CPU</b></td>
+         <td><code>-m CPU</code></td>
+         <td><code>-S POWER</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Fans speed</td>
+         <td><b>A_PWR_FAN</b></td>
+         <td><code>-m FAN</code></td>
+         <td><code>-S POWER</code></td>
+         <td>Yes</td>
+         <td>Need the sensors library (lm_sensors)</td>
+      </tr>
+      <tr>
+         <td>Weighted CPU clock frequency</td>
+         <td><b>A_PWR_FREQ</b></td>
+         <td><code>-m FREQ</code></td>
+         <td><code>-S POWER</code></td>
+         <td>No</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Voltage inputs</td>
+         <td><b>A_PWR_IN</b></td>
+         <td><code>-m IN</code></td>
+         <td><code>-S POWER</code></td>
+         <td>Yes</td>
+         <td>Need the sensors library (lm_sensors)</td>
+      </tr>
+      <tr>
+         <td>Devices temperature</td>
+         <td><b>A_PWR_TEMP</b></td>
+         <td><code>-m TEMP</code></td>
+         <td><code>-S POWER</code></td>
+         <td>Yes</td>
+         <td>Need the sensors library (lm_sensors)</td>
+      </tr>
+      <tr>
+         <td>Plugged USB devices</td>
+         <td><b>A_PWR_USB</b></td>
+         <td><code>-m USB</code></td>
+         <td><code>-S POWER</code></td>
+         <td>No</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Battery power</td>
+         <td><b>A_PWR_BAT</b></td>
+         <td><code>-m BAT</code></td>
+         <td><code>-S POWER</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Network devices activity</td>
+         <td><b>A_NET_DEV</b></td>
+         <td><code>-n DEV</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Network devices errors</td>
+         <td><b>A_NET_EDEV</b></td>
+         <td><code>-n EDEV</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>NFS client activity</td>
+         <td><b>A_NET_NFS</b></td>
+         <td><code>-n NFS</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>NFS server activity</td>
+         <td><b>A_NET_NFSD</b></td>
+         <td><code>-n NFSD</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Sockets in use</td>
+         <td><b>A_NET_SOCK</b></td>
+         <td><code>-n SOCK</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>IPv4 network activity</td>
+         <td><b>A_NET_IP</b></td>
+         <td><code>-n IP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>IPv4 network errors</td>
+         <td><b>A_NET_EIP</b></td>
+         <td><code>-n EIP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>ICMPv4 network activity</td>
+         <td><b>A_NET_ICMP</b></td>
+         <td><code>-n ICMP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>ICMPv4 network errors</td>
+         <td><b>A_NET_EICMP</b></td>
+         <td><code>-n EICMP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>TCPv4 network activity</td>
+         <td><b>A_NET_TCP</b></td>
+         <td><code>-n TCP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>TCPv4 network errors</td>
+         <td><b>A_NET_ETCP</b></td>
+         <td><code>-n ETCP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>UDPv4 network activity</td>
+         <td><b>A_NET_UDP</b></td>
+         <td><code>-n UDP</code></td>
+         <td><code>-S SNMP</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>IPv6 sockets in use</td>
+         <td><b>A_NET_SOCK6</b></td>
+         <td><code>-n SOCK6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>IPv6 network activity</td>
+         <td><b>A_NET_IP6</b></td>
+         <td><code>-n IP6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>IPv6 network errors</td>
+         <td><b>A_NET_EIP6</b></td>
+         <td><code>-n EIP6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>ICMPv6 network activity</td>
+         <td><b>A_NET_ICMP6</b></td>
+         <td><code>-n ICMP6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>ICMPv6 network errors</td>
+         <td><b>A_NET_EICMP6</b></td>
+         <td><code>-n EICMP6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>UDPv6 network activity</td>
+         <td><b>A_NET_UDP6</b></td>
+         <td><code>-n UDP6</code></td>
+         <td><code>-S IPV6</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Fibre Channel traffic</td>
+         <td><b>A_NET_FC</b></td>
+         <td><code>-n FC</code></td>
+         <td><code>-S DISK</code></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Software-based network processing activity</td>
+         <td><b>A_NET_SOFT</b></td>
+         <td><code>-n SOFT</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Queue length and load averages</td>
+         <td><b>A_QUEUE</b></td>
+         <td><code>-q LOAD</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Pressure-stall CPU activity</td>
+         <td><b>A_PSI_CPU</b></td>
+         <td><code>-q CPU</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Pressure-stall I/O activity</td>
+         <td><b>A_PSI_IO</b></td>
+         <td><code>-q IO</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Pressure-stall memory activity</td>
+         <td><b>A_PSI_MEM</b></td>
+         <td><code>-q MEM</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Memory utilization</td>
+         <td><b>A_MEMORY</b></td>
+         <td><code>-r</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td>sar: <code>-r ALL</code> displays all memory fields</td>
+      </tr>
+      <tr>
+         <td>Swap space utilization</td>
+         <td><b>A_MEMORY</b></td>
+         <td><code>-S</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>CPU utilization</td>
+         <td><b>A_CPU</b></td>
+         <td><code>-u</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td>sar: <code>-u ALL</code> displays all CPU fields</td>
+      </tr>
+      <tr>
+         <td>Inodes and other kernel tables activity</td>
+         <td><b>A_KTABLES</b></td>
+         <td><code>-v</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Swapping activity</td>
+         <td><b>A_SWAP</b></td>
+         <td><code>-W</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>Task creation and switching activity</td>
+         <td><b>A_PCSW</b></td>
+         <td><code>-w</code></td>
+         <td><i>(default)</i></td>
+         <td>Yes</td>
+         <td></td>
+      </tr>
+      <tr>
+         <td>TTY devices activity</td>
+         <td><b>A_SERIAL</b></td>
+         <td><code>-y</code></td>
+         <td><i>(default)</i></td>
+         <td>No</td>
+         <td></td>
+      </tr>
+   </tbody>
+</table>
+<br><br>
+
+   </body>
+</html>

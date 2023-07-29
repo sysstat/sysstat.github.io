@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Sysstat 12.7.3</title>
+   </head>
+   <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
+   vlink="#33cc00" link="#33ff33" alink="#66ff99">
+      <style>
+         pre {
+            font-size: 120%
+         }
+         code {
+            color: #fd6614;
+            font-size: 120%;
+         }
+      </style>
+      <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="2" border="0">
+	 <tbody>
+	    <tr>
+		<td style="vertical-align: middle; text-align: left; width: 80%; background-repeat: repeat-x;" class="bandeau">
+		   <img style="width: 375px; height: 157px;" alt="bandeau1" src="/bandeau11.jpg">
+		   <img style="width: 333px; height: 156px;" alt="bandeau2" src="/bandeau22.jpg">
+		</td>
+		<td style="vertical-align: bottom; text-align: center;">
+		   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		      <input name="cmd" value="_s-xclick" type="hidden">
+		      <input name="hosted_button_id" value="45U6F9R73ESFQ" type="hidden">
+		      <input src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+		             name="submit" alt="PayPal - The safer, easier way to pay online!"
+		             type="image">
+		      <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+		           width="1" height="1" border="0">
+		   </form>
+            </td>
+	    </tr>
+	    <tr>
+	       <td id="menuhaut" colspan="2" rowspan="1">
+		  <hr style="height: 12px; width: 100%;">
+		  <div style="text-align: center; color: rgb(51, 255, 51);">
+		     <font size="+1">
+			<a href="/index.html">News</a>&nbsp;
+			|&nbsp;
+			<a href="/features.html">Features</a>&nbsp;
+			|&nbsp;
+			<a href="/dtd_xsd.html">DTD/XSD</a>&nbsp;
+			|&nbsp;
+			<a href="https://github.com/sysstat/sysstat" target="_blank">GitHub</a>&nbsp;
+			|&nbsp;
+			<a href="documentation.html">Documentation</a>&nbsp;
+			|&nbsp;
+			<a href="tutorial.html">Tutorial</a>&nbsp;
+			|&nbsp;
+			<a href="/faq.html">FAQ</a>&nbsp;
+			|&nbsp;
+			<a href="mailto:sysstat%20%3Cat%3E%20orange.fr">Contact</a>
+		    </font>
+		 </div>
+	      </td>
+	    </tr>
+         </tbody>
+      </table>
+      <br><br>
+	 <h3>Sysstat 12.7.3</h3>
+<font color="#99ffff" style="font-weight: bold;">
+   <p>16 Jun 2023</p>
+</font>
+
+<p>This version adds <strong>extended reports</strong> support to sar. Extended reports,
+available using option -x with sar, display minimum and maximum values
+in addition to average ones at the end of each report.<br />
+This version also includes a lot of fixes and small other improvements.</p>
+
+<h3 id="changelog">Changelog</h3>
+<ul>
+  <li>sar: Add new option ‘-x’ used to display extended reports.</li>
+  <li><strong>Pavel Kopylov</strong>: Fix an overflow which is still possible for some values.</li>
+  <li><strong>Jan Kurik</strong>: Fix export of PSI metrics to a PCP archive.</li>
+  <li><strong>Lukáš Zaoral</strong>: Tools that take <code class="language-plaintext highlighter-rouge">--dec=X</code> option should only accept digits.</li>
+  <li>common.c: Fix an overflow which was still possible for some values.</li>
+  <li>iostat: Try to avoid displaying negative values.</li>
+  <li>Free pointer if realloc() fails.</li>
+  <li>Don’t check if unsigned expressions are less than zero.</li>
+  <li>Declare parameters with “const” when possible.</li>
+  <li>Remove conditions which are always true.</li>
+  <li>Reduce variables scope when relevant.</li>
+  <li>Don’t assign values that are never used.</li>
+  <li>Fix types used in format strings.</li>
+  <li>Split large functions into smaller ones.</li>
+  <li>Specify field width when using sscanf() function.</li>
+  <li>search_list_item(): Return position in list instead of a boolean.</li>
+  <li>add_list_item(): Also return item position in liste</li>
+  <li>svg_stats.c: Ignore negative values for fields position.</li>
+  <li>svg_stats.c: Reuse buffers pointers definition.</li>
+  <li>svg_stats.c: Reuse intermediate calculations.</li>
+  <li>svg_stats.c: Don’t repeat test on DISPLAY_CPU_DEF().</li>
+  <li>sa_common.c: Don’t use (void *) pointer in calculation.</li>
+  <li>iostat.c: Clarify calculation precedence for ‘+’ and ‘?’.</li>
+  <li>sar/sadf: Refactor buffer allocation functions.</li>
+  <li>sar/sadf: Add a check on file’s records header data.</li>
+  <li>sar/sadf: Stop when invalid data are read in records header.</li>
+  <li>sar/sadf: Check upper bounds of value read from file.</li>
+  <li>sadf_misc.c: Fix indentation in code.</li>
+  <li>activity.c: Init item_list even for other commands than sadf.</li>
+  <li>sa_conv.c: Reallocate buffers only when needed.</li>
+  <li>sa_conv.c: Fix untrusted allocation size.</li>
+  <li>pr_stats.c: Remove some dead code.</li>
+  <li>sar.c: Make sure buffer is null terminated.</li>
+  <li>do_test: Add several new options.</li>
+  <li>do_test: Don’t strip binaries when in TEST mode.</li>
+  <li>Update non regression tests.</li>
+  <li>simtest: Change default _unix_time value.</li>
+  <li>Makefile.in: Simplify dependencies.</li>
+  <li>Makefile_in: Small update made to copyyear target.</li>
+  <li>sadf: XML: Update DTD and XSD documents.</li>
+  <li>sadf: XML: Remove references to my personal web site.</li>
+  <li>Restore mode for iconfig file.</li>
+  <li>Fix typo in sar’s manual page. Sar manual page updated.</li>
+  <li>Other manual pages updated.</li>
+</ul>
+
+<h3 id="download">Download</h3>
+
+<table style="text-align: center;" valign="middle"
+       cellspacing="2" cellpadding="2" border="1"
+
+       height="80"
+
+       width="707" bgcolor="#663366">
+   <tbody>
+      <tr style="font-weight: bold; font-style: italic;
+          background-color: rgb(51, 102, 102);" height="40">
+         <td>sysstat 12.7.3</td>
+         <td>Size</td>
+         <td>sha1sum</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-12.7.3.tar.xz"
+            moz-do-not-send="true">Download (tar.xz format)</a></td>
+         <td>893 kiB</td>
+         <td>9a2ec12334070fafb97178597095ba606196545c</td>
+      </tr>
+
+   </tbody>
+</table>
+<br><br>
+
+   </body>
+</html>
