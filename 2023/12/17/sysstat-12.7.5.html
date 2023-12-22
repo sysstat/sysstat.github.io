@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Sysstat 12.7.4</title>
+      <title>Sysstat 12.7.5</title>
    </head>
    <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
    vlink="#33cc00" link="#33ff33" alink="#66ff99">
@@ -59,19 +59,36 @@
          </tbody>
       </table>
       <br><br>
-	 <h3>Sysstat 12.7.4</h3>
+	 <h3>Sysstat 12.7.5</h3>
 <font color="#99ffff" style="font-weight: bold;">
-   <p>18 Jun 2023</p>
+   <p>17 Dec 2023</p>
 </font>
 
-<p>Previous 12.7.3 version (released two days ago) was a Brown Paper Bag release!
-Current one only fixes a problem that <strong>prevented sysstat from being installed</strong>.
-Sorry for that.</p>
+<p>The sar command here includes <strong>two new metrics</strong> (pgprom/s et pgdem/s) so
+that we can now track the number of pages promoted or demoted by the
+system per second (that is to say, the number of pages migrated from
+slow to fast, or from fast to slow, memory types).
+Another metric (%vmeff) has also been removed from sar, as it was more a
+kernel metric than a system one and it was wrongly calculated with
+recent kernels.
+You will also find various small fixes and improvements in this version.</p>
 
 <h3 id="changelog">Changelog</h3>
 <ul>
-  <li>Makefile.in: Fix installation error.</li>
-  <li>Makefile.in: Remove gcc warning displayed in LTO mode.</li>
+  <li><strong>Quan quan Cao</strong>: sar/sadc: Add new metrics pgprom/s and pgdem/s.</li>
+  <li>sar: Remove %vmeff metric.</li>
+  <li>sadf: Update various output formats to take into account metrics that have been added or removed.</li>
+  <li>Update DTD and XSD documents.</li>
+  <li>Update sar manual page.</li>
+  <li>sar: Add a cron entry and a new systemd service and timer to rotate daily data file at midnight.</li>
+  <li>Option -V with sysstat commands also displays environment contents.</li>
+  <li><strong>Sam Morris</strong>: Use correct encoding to produce hyphen-minus when rendering man pages.</li>
+  <li>Add UMASK variable definition to sysstat(5) manual page.</li>
+  <li>Update non regression tests.</li>
+  <li>Add –getenv option to commands that didn’t have it.</li>
+  <li>Update README file for Debian-based distros.</li>
+  <li>Update link to my personal web page in README and manual pages.</li>
+  <li>NLS: Translations updated.</li>
 </ul>
 
 <h3 id="download">Download</h3>
@@ -79,22 +96,37 @@ Sorry for that.</p>
 <table style="text-align: center;" valign="middle"
        cellspacing="2" cellpadding="2" border="1"
 
-       height="80"
+       height="145"
 
        width="750" bgcolor="#663366">
    <tbody>
       <tr style="font-weight: bold; font-style: italic;
           background-color: rgb(51, 102, 102);" height="40">
-         <td>sysstat 12.7.4</td>
+         <td>sysstat 12.7.5</td>
          <td>Size</td>
          <td>sha1sum</td>
       </tr>
       <tr>
          <td style="text-align: left;">
-            <a href="/sysstat-packages/sysstat-12.7.4.tar.xz"
+            <a href="/sysstat-packages/sysstat-12.7.5.tar.xz"
             moz-do-not-send="true">Download (tar.xz format)</a></td>
-         <td>893 kiB</td>
-         <td>b44229352c5301c731ee6d7107b72e06aecc9375</td>
+         <td>896 kiB</td>
+         <td>f329edff36f462385a7c20d2a136b667ab8db735</td>
+      </tr>
+
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.5.tar.gz"
+            moz-do-not-send="true">Download (tar.gz format)</a></td>
+         <td>1525 kiB</td>
+         <td>dcfa190d5c475f14a623dfa5aa9e1e8dda06333b</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.5-1.x86_64.rpm"
+            moz-do-not-send="true">Download (x86_64 rpm format)</a></td>
+         <td>480 kiB</td>
+         <td>3900200f7d872e0e7dda24e563afc3f455673355</td>
       </tr>
 
    </tbody>
