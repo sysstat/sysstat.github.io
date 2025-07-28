@@ -84,13 +84,27 @@ General Public License, version 2</a>.
 <ul>
    
       <span style="color: rgb(255, 255, 0);">
+         <h3>28 Jul 2025 -
+               <a href="/2025/07/28/sysstat-12.7.8.html">sysstat 12.7.8</a>
+               released
+            </h3>
+         </span>
+         <p>This version includes small improvements like:</p>
+<ul>
+  <li>The addition of a new metric (kbshmem) to sar and sadf to monitor shared memory.</li>
+  <li>The addition of a new option (-U) to cifsiostat, iostat, mpstat and tapestat commands to display timestamps in seconds since the Epoch.</li>
+  <li>The support for sysstat out-of-tree building and testing.</li>
+</ul>
+
+   
+      <span style="color: rgb(255, 255, 0);">
          <h3>02 Feb 2025 -
                <a href="/2025/02/02/sysstat-12.7.7.html">sysstat 12.7.7</a>
                released
             </h3>
          </span>
          <p>This version adds JSON output to pidstat, tapestat and cifsiostat with
-new option "-o JSON". Now all sysstat commands can output their
+new option “-o JSON”. Now all sysstat commands can output their
 statistics in JSON format.
 It also includes an improved fix for CVE-2022-39377 and CVE-2023-33204
 (sysstat overflow on 32-bit and possibly 64-bit systems) with a complete
@@ -110,7 +124,7 @@ Also note that sar’s <strong>retrans/s</strong> field used in the A_NET_ETCP r
 been renamed to <strong>retrseg/s</strong> to avoid confusion with another field with
 the same name used in the A_NET_NFS report.</p>
 
-
+   
       <span style="color: rgb(255, 255, 0);">
          <h3>17 Dec 2023 -
                <a href="/2023/12/17/sysstat-12.7.5.html">sysstat 12.7.5</a>

@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Sysstat 12.7.7</title>
+      <title>Sysstat 12.7.8</title>
    </head>
    <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
    vlink="#33cc00" link="#33ff33" alink="#66ff99">
@@ -59,44 +59,39 @@
          </tbody>
       </table>
       <br><br>
-	 <h3>Sysstat 12.7.7</h3>
+	 <h3>Sysstat 12.7.8</h3>
 <font color="#99ffff" style="font-weight: bold;">
-   <p>02 Feb 2025</p>
+   <p>28 Jul 2025</p>
 </font>
 
-<p>This version adds JSON output to pidstat, tapestat and cifsiostat with
-new option “-o JSON”. Now all sysstat commands can output their
-statistics in JSON format.
-It also includes an improved fix for CVE-2022-39377 and CVE-2023-33204
-(sysstat overflow on 32-bit and possibly 64-bit systems) with a complete
-rewrite of the overflow check function, fixing a last, late-detected flaw.</p>
+<p>This version includes small improvements like:</p>
+<ul>
+  <li>The addition of a new metric (kbshmem) to sar and sadf to monitor shared memory.</li>
+  <li>The addition of a new option (-U) to cifsiostat, iostat, mpstat and tapestat commands to display timestamps in seconds since the Epoch.</li>
+  <li>The support for sysstat out-of-tree building and testing.</li>
+</ul>
 
 <h3 id="changelog">Changelog</h3>
 <ul>
-  <li>Rework overflow check function.</li>
-  <li>pidstat: Add JSON output format (option “-o JSON”).</li>
-  <li><strong>Siddhi Katage</strong>: pidstat: Fix bogus %usr values in pidstat output.</li>
-  <li>pidstat: Free structures before exiting.</li>
-  <li>pidstat: Make sure interval is specified when option -e is used.</li>
-  <li>pidstat: Create separate functions to display data for current task.</li>
-  <li>pidstat: Various cosmetic changes.</li>
-  <li>cifsiostat: Add JSON output format (option “-o JSON”).</li>
-  <li>cifsiostat: Display error message when no CIFS fs are found.</li>
-  <li>cifsiostat: Add new option -y to tell cifsiostat to omit the first report with statistics since system restart.</li>
-  <li>tapestat: Add JSON output format (option “-o JSON”).</li>
-  <li>tapestat: Set handler for SIGALRM in rw_tape_stat_loop() function.</li>
-  <li>tapestat: Call write_sample_timestamp() to display timestamp.</li>
-  <li>mpstat: Properly terminate JSON output when ^C entered on first interval.</li>
-  <li>iostat: Remove extra blank line when omitting first report.</li>
-  <li>cifsiostat, tapestat and pidstat manual pages updated.</li>
-  <li>Use the binary units (kibibytes, mebibytes…) instead of kilobytes, megabytes… in all manual pages.</li>
-  <li>FAQ updated.</li>
-  <li><strong>Peter Portante</strong>: Slight changes to compile on Mac OS X.</li>
-  <li><strong>Peter Portante</strong>: Add missing “void” parameter to init_custom_color_palette() function.</li>
-  <li>Use xflags variable for options used by multiple commands.</li>
-  <li>Move write_sample_timestamp() function to common.c file.</li>
-  <li>Update headers files included.</li>
-  <li>Add new non regression tests.</li>
+  <li>sar/sadf: Add new metric kbshmem.</li>
+  <li>sar/sadf: Now compute used memory as total memory - available memory.</li>
+  <li>sadf: Set availablekb to frmkb during conversion.</li>
+  <li>cifsiostat, iostat, mpstat, tapestat: Add new option -U to display timestamps in seconds since the Epoch.</li>
+  <li>Trap SIGTERM with all sysstat commands.</li>
+  <li>mpstat: Go to next line when Ctrl/C is pressed.</li>
+  <li>Add support for out-of-tree building and testing.</li>
+  <li>sar: A_PWR_BAT: Fix wrong size used in memory initialization.</li>
+  <li>Makefile.in: Update dependencies for install_man target.</li>
+  <li>Makefile.in: Remove unused TFLAGS variable.</li>
+  <li>Makefile.in: Remove old references to nfsiostat.</li>
+  <li>DTD and XSD documents updated.</li>
+  <li>NLS translations updated.</li>
+  <li>sar, mpstat, iostat, cifsiostat and tapestat manual pages updated.</li>
+  <li>Various cosmetic changes in code and Makefile.</li>
+  <li>do_test: Add test target for out-of-tree build.</li>
+  <li>systest: Explicitly set signal to SIGINT.</li>
+  <li>Non regression tests: Remove root symlink in tests directory.</li>
+  <li>Non regression tests updated.</li>
 </ul>
 
 <h3 id="download">Download</h3>
@@ -104,22 +99,37 @@ rewrite of the overflow check function, fixing a last, late-detected flaw.</p>
 <table style="text-align: center;" valign="middle"
        cellspacing="2" cellpadding="2" border="1"
 
-       height="80"
+       height="145"
 
        width="750" bgcolor="#663366">
    <tbody>
       <tr style="font-weight: bold; font-style: italic;
           background-color: rgb(51, 102, 102);" height="40">
-         <td>sysstat 12.7.7</td>
+         <td>sysstat 12.7.8</td>
          <td>Size</td>
          <td>sha1sum</td>
       </tr>
       <tr>
          <td style="text-align: left;">
-            <a href="/sysstat-packages/sysstat-12.7.7.tar.xz"
+            <a href="/sysstat-packages/sysstat-12.7.8.tar.xz"
             moz-do-not-send="true">Download (tar.xz format)</a></td>
-         <td>910 kiB</td>
-         <td>4a1ddc550f5229c063030bce92bdb55dde944c32</td>
+         <td>913 kiB</td>
+         <td>44c32ee9f3a9c5870a5ab8284ad27dfde43b53df</td>
+      </tr>
+
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.8.tar.gz"
+            moz-do-not-send="true">Download (tar.gz format)</a></td>
+         <td>1559 kiB</td>
+         <td>67d3df8db75437dbc7b11e1d4b8ef0bff88b2fd6</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.8-1.x86_64.rpm"
+            moz-do-not-send="true">Download (x86_64 rpm format)</a></td>
+         <td>483 kiB</td>
+         <td>f4cfa4d27b726af66508b169901be29eb5df6dee</td>
       </tr>
 
    </tbody>
