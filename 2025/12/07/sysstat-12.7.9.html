@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Sysstat 12.7.8</title>
+      <title>Sysstat 12.7.9</title>
    </head>
    <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
    vlink="#33cc00" link="#33ff33" alink="#66ff99">
@@ -59,39 +59,39 @@
          </tbody>
       </table>
       <br><br>
-	 <h3>Sysstat 12.7.8</h3>
+	 <h3>Sysstat 12.7.9</h3>
 <font color="#99ffff" style="font-weight: bold;">
-   <p>28 Jul 2025</p>
+   <p>07 Dec 2025</p>
 </font>
 
-<p>This version includes small improvements like:</p>
-<ul>
-  <li>The addition of a new metric (kbshmem) to sar and sadf to monitor shared memory.</li>
-  <li>The addition of a new option (-U) to cifsiostat, iostat, mpstat and tapestat commands to display timestamps in seconds since the Epoch.</li>
-  <li>The support for sysstat out-of-tree building and testing.</li>
-</ul>
+<p>This version fixes a bug with pgsteal values displayed by sar
+which were twice too large with recent kernels.
+This version also accepts Truecolor (RGB) SGR codes, allowing for a
+wider range of colors in sysstat commands output.
+Apart from that, this version is mainly a technical one, taking into
+account several suggestions made by Le Chat from Mistral AI.</p>
 
 <h3 id="changelog">Changelog</h3>
 <ul>
-  <li>sar/sadf: Add new metric kbshmem.</li>
-  <li>sar/sadf: Now compute used memory as total memory - available memory.</li>
-  <li>sadf: Set availablekb to frmkb during conversion.</li>
-  <li>cifsiostat, iostat, mpstat, tapestat: Add new option -U to display timestamps in seconds since the Epoch.</li>
-  <li>Trap SIGTERM with all sysstat commands.</li>
-  <li>mpstat: Go to next line when Ctrl/C is pressed.</li>
-  <li>Add support for out-of-tree building and testing.</li>
-  <li>sar: A_PWR_BAT: Fix wrong size used in memory initialization.</li>
-  <li>Makefile.in: Update dependencies for install_man target.</li>
-  <li>Makefile.in: Remove unused TFLAGS variable.</li>
-  <li>Makefile.in: Remove old references to nfsiostat.</li>
-  <li>DTD and XSD documents updated.</li>
-  <li>NLS translations updated.</li>
-  <li>sar, mpstat, iostat, cifsiostat and tapestat manual pages updated.</li>
-  <li>Various cosmetic changes in code and Makefile.</li>
-  <li>do_test: Add test target for out-of-tree build.</li>
-  <li>systest: Explicitly set signal to SIGINT.</li>
-  <li>Non regression tests: Remove root symlink in tests directory.</li>
-  <li>Non regression tests updated.</li>
+  <li>sar: Fix pgsteal/s double value with recent kernels.</li>
+  <li>Allow Truecolor (RGB) SGR codes in sysstat commands output.</li>
+  <li>Don’t display newline character within SGR-formatted text.</li>
+  <li>Rework several functions based on Mistral AI Le Chat’s suggestions.</li>
+  <li><strong>Jun Lyu</strong>: Fix missing dependencies in Makefile.in.</li>
+  <li>mpstat: No longer call get_HZ() function.</li>
+  <li>sar: Close file descriptors on fork() error.</li>
+  <li>Fix version number in sysstat.xsd document.</li>
+  <li>Check passed args in some functions.</li>
+  <li>common.c: Include ioconf.h header file only if SOURCE_SADC is defined.</li>
+  <li>Mark various variables as constant.</li>
+  <li>Improve code clarity and readability.</li>
+  <li>Exit if calling sysconf() function fails.</li>
+  <li>Create format strings using string’s real max value.</li>
+  <li>simtest: Fix gcc warning in legacy sar version.</li>
+  <li>Update sar and sadf manual page.</li>
+  <li>Update FAQ.</li>
+  <li>NLS: Translations updated.</li>
+  <li>Update non regression tests.</li>
 </ul>
 
 <h3 id="download">Download</h3>
@@ -99,22 +99,37 @@
 <table style="text-align: center;" valign="middle"
        cellspacing="2" cellpadding="2" border="1"
 
-       height="80"
+       height="145"
 
        width="750" bgcolor="#663366">
    <tbody>
       <tr style="font-weight: bold; font-style: italic;
           background-color: rgb(51, 102, 102);" height="40">
-         <td>sysstat 12.7.8</td>
+         <td>sysstat 12.7.9</td>
          <td>Size</td>
          <td>sha1sum</td>
       </tr>
       <tr>
          <td style="text-align: left;">
-            <a href="/sysstat-packages/sysstat-12.7.8.tar.xz"
+            <a href="/sysstat-packages/sysstat-12.7.9.tar.xz"
             moz-do-not-send="true">Download (tar.xz format)</a></td>
-         <td>913 kiB</td>
-         <td>44c32ee9f3a9c5870a5ab8284ad27dfde43b53df</td>
+         <td>914 kiB</td>
+         <td>91e33ad8b2166edcc754ef30de44d106fd742396</td>
+      </tr>
+
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.9.tar.gz"
+            moz-do-not-send="true">Download (tar.gz format)</a></td>
+         <td>1558 kiB</td>
+         <td>3dd0ff0f079716e929d11a7a8a1ad178b631a4b1</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.7.9-1.x86_64.rpm"
+            moz-do-not-send="true">Download (x86_64 rpm format)</a></td>
+         <td>484 kiB</td>
+         <td>9d557aa3f2699db4ae88de9a6a9246e20f14c87a</td>
       </tr>
 
    </tbody>
