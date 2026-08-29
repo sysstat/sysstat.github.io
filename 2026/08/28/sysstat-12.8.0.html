@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Sysstat 12.8.0</title>
+   </head>
+   <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
+   vlink="#33cc00" link="#33ff33" alink="#66ff99">
+      <style>
+         pre {
+            font-size: 120%;
+         }
+         code {
+            color: #fd6614;
+            font-size: 120%;
+         }
+      </style>
+      <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="2" border="0">
+	 <tbody>
+	    <tr>
+		<td style="vertical-align: middle; text-align: left; width: 80%; background-repeat: repeat-x;" class="bandeau">
+		   <img style="width: 375px; height: 157px;" alt="bandeau1" src="/bandeau11.jpg">
+		   <img style="width: 333px; height: 156px;" alt="bandeau2" src="/bandeau22.jpg">
+		</td>
+		<td style="vertical-align: bottom; text-align: center;">
+		   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		      <input name="cmd" value="_s-xclick" type="hidden">
+		      <input name="hosted_button_id" value="45U6F9R73ESFQ" type="hidden">
+		      <input src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+		             name="submit" alt="PayPal - The safer, easier way to pay online!"
+		             type="image">
+		      <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+		           width="1" height="1" border="0">
+		   </form>
+            </td>
+	    </tr>
+	    <tr>
+	       <td id="menuhaut" colspan="2" rowspan="1">
+		  <hr style="height: 12px; width: 100%;">
+		  <div style="text-align: center; color: rgb(51, 255, 51);">
+		     <font size="+1">
+			<a href="/index.html">News</a>&nbsp;
+			|&nbsp;
+			<a href="/features.html">Features</a>&nbsp;
+			|&nbsp;
+			<a href="/dtd_xsd.html">DTD/XSD</a>&nbsp;
+			|&nbsp;
+			<a href="https://github.com/sysstat/sysstat" target="_blank">GitHub</a>&nbsp;
+			|&nbsp;
+			<a href="/versions.html">Download</a>&nbsp;
+			|&nbsp;
+			<a href="/faq.html">FAQ</a>&nbsp;
+			|&nbsp;
+			<a href="/about">About</a>
+		    </font>
+		 </div>
+	      </td>
+	    </tr>
+         </tbody>
+      </table>
+      <br><br>
+	 <h3>Sysstat 12.8.0</h3>
+<font color="#99ffff" style="font-weight: bold;">
+   <p>28 Aug 2026</p>
+</font>
+
+<p>This is a technical and debug version. Among the improvements, note that
+sysstat will now read the files in /proc only once per collection cycle.
+Also the addition of a new flag (-G) to iostat, cifsiostat and tapestat
+to display statistics in GiB/s, a fix regarding how pgsteal/s (displayed
+by sar -B) is calculated, and various other fixes and optimizations.</p>
+
+<h3 id="changelog">Changelog</h3>
+<ul>
+  <li><strong>Agenticode</strong>: sadc: Read /proc/stat once per collection cycle.</li>
+  <li>rd_stats.c: Rework functions to read /proc files once.</li>
+  <li>Read all /proc files once per collection cycle.</li>
+  <li><strong>Sagar Sagar</strong>: Avoid all-zero CPU rows on counter regression.</li>
+  <li><strong>Lilu</strong>: svg_stats.c: Fix integer overflow in allocate_graph_lines size computation.</li>
+  <li><strong>Hang Zhao</strong>: sadc: Fix pgscan_direct counter incorrectly including pgscan_direct_throttle.</li>
+  <li><strong>Andy Lau</strong>: sadc: Fix pgsteal/s double counting by only summing pgsteal_anon and pgsteal_file.</li>
+  <li><strong>Andy Lau</strong>: sar, mpstat: use write() instead of printf() in signal handler to ensure JSON output is properly closed on SIGTERM.</li>
+  <li><strong>Andy Lau</strong>: Remove unnecessary unsigned int cast that truncates irq_nr in read_stat_total_irq().</li>
+  <li><strong>Andy Lau</strong>: Fix typo in sar manual page.</li>
+  <li><strong>Dean Chen</strong>: sadf, sar: let –fs match mountpoints as well as device names.</li>
+  <li>sar/sadf: Don’t test for empty “–fs=” list.</li>
+  <li><strong>Nathan Scott</strong>: iostat/tapestat/cifsiostat: add -G flag for gibibyte display.</li>
+  <li><strong>Nathan Scott</strong>: sa1: derive LONG_NAME from SADC_OPTIONS, not just HISTORY.</li>
+  <li><strong>Nathan Scott</strong>: sa2: honour -D in SADC_OPTIONS for date format.</li>
+  <li><strong>Nathan Scott</strong>: Slightly reduce scope of install-cron configure script option.</li>
+  <li><strong>Nathan Scott</strong>: Rename –enable-install-cron to –disable-automated-sar-reporting.</li>
+  <li><strong>Nathan Scott</strong>: Enable automated sar reporting by default.</li>
+  <li><strong>Nathan Scott</strong>: sadc: Fix heap buffer overflow in reallocate_buffer().</li>
+  <li><strong>Nathan Scott</strong>: do_test: Replace bash-ism with POSIX arithmetic.</li>
+  <li><strong>Nathan Scott</strong>: do_test: Exit with error status on test failure.</li>
+  <li><strong>Nathan Scott</strong>: tests: Fix PCP archive test portability.</li>
+  <li><strong>Nathan Scott</strong>: ci: Add GitHub Actions CI workflow.</li>
+  <li>sa1: Remove “iso” option.</li>
+  <li>cifsiostat: Add JSON output for option -G (display in Gigabytes).</li>
+  <li>pidstat: Add fflush() after JSON closing output.</li>
+  <li>sadc: Now only read pgscan_kswapd counter.</li>
+  <li>sa_wrap.c: Also use reallocate_buffer() function for A_PWR_FREQ activity.</li>
+  <li>cifsiostat, iostat, sa1, sadf, sar and tapestat manual pages updated.</li>
+  <li>Non-regression tests updated. New tests added.</li>
+  <li>simtest: Fix issue related to 19th day of the month.</li>
+  <li>Makefile: Fix EXTRALIST variable contents.</li>
+  <li>Fix some tests for out-of-tree build.</li>
+  <li>do_test: Make options available with out-of-tree target.</li>
+  <li><strong>orbisai0security</strong>: Fix a (theoretical) security vulnerability.</li>
+  <li><strong>Peter Dave Hello</strong>: Refresh sysstat gettext template file.</li>
+  <li>FAQ file updated.</li>
+  <li>NLS translations updated.</li>
+  <li>Update year in copyright messages.</li>
+  <li>tapestat: Cosmetic change.</li>
+</ul>
+
+<h3 id="download">Download</h3>
+
+<table style="text-align: center;" valign="middle"
+       cellspacing="2" cellpadding="2" border="1"
+
+       height="145"
+
+       width="750" bgcolor="#663366">
+   <tbody>
+      <tr style="font-weight: bold; font-style: italic;
+          background-color: rgb(51, 102, 102);" height="40">
+         <td>sysstat 12.8.0</td>
+         <td>Size</td>
+         <td>sha1sum</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.0.tar.xz"
+            moz-do-not-send="true">Download (tar.xz format)</a></td>
+         <td>914 kiB</td>
+         <td>0888dea47cbbac8248ca7267ca189627315578d8</td>
+      </tr>
+
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.0.tar.gz"
+            moz-do-not-send="true">Download (tar.gz format)</a></td>
+         <td>1536 kiB</td>
+         <td>bf343509a2a5a8019e72191ed6858659b868af6e</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.0-1.x86_64.rpm"
+            moz-do-not-send="true">Download (x86_64 rpm format)</a></td>
+         <td>486 kiB</td>
+         <td>a732010d5cc3c06ad7c021b9d777966e8e3f0998</td>
+      </tr>
+
+   </tbody>
+</table>
+<br><br>
+
+   </body>
+</html>
