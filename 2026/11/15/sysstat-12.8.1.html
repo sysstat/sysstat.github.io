@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Sysstat 12.8.1</title>
+   </head>
+   <body  style="font-family: Verdana,sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 0, 110);"
+   vlink="#33cc00" link="#33ff33" alink="#66ff99">
+      <style>
+         pre {
+            font-size: 120%;
+         }
+         code {
+            color: #fd6614;
+            font-size: 120%;
+         }
+      </style>
+      <table style="width: 100%; height: 95px;" cellspacing="0" cellpadding="2" border="0">
+	 <tbody>
+	    <tr>
+		<td style="vertical-align: middle; text-align: left; width: 80%; background-repeat: repeat-x;" class="bandeau">
+		   <img style="width: 375px; height: 157px;" alt="bandeau1" src="/bandeau11.jpg">
+		   <img style="width: 333px; height: 156px;" alt="bandeau2" src="/bandeau22.jpg">
+		</td>
+		<td style="vertical-align: bottom; text-align: center;">
+		   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		      <input name="cmd" value="_s-xclick" type="hidden">
+		      <input name="hosted_button_id" value="45U6F9R73ESFQ" type="hidden">
+		      <input src="https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif"
+		             name="submit" alt="PayPal - The safer, easier way to pay online!"
+		             type="image">
+		      <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+		           width="1" height="1" border="0">
+		   </form>
+            </td>
+	    </tr>
+	    <tr>
+	       <td id="menuhaut" colspan="2" rowspan="1">
+		  <hr style="height: 12px; width: 100%;">
+		  <div style="text-align: center; color: rgb(51, 255, 51);">
+		     <font size="+1">
+			<a href="/index.html">News</a>&nbsp;
+			|&nbsp;
+			<a href="/features.html">Features</a>&nbsp;
+			|&nbsp;
+			<a href="/dtd_xsd.html">DTD/XSD</a>&nbsp;
+			|&nbsp;
+			<a href="https://github.com/sysstat/sysstat" target="_blank">GitHub</a>&nbsp;
+			|&nbsp;
+			<a href="/versions.html">Download</a>&nbsp;
+			|&nbsp;
+			<a href="/faq.html">FAQ</a>&nbsp;
+			|&nbsp;
+			<a href="/about">About</a>
+		    </font>
+		 </div>
+	      </td>
+	    </tr>
+         </tbody>
+      </table>
+      <br><br>
+	 <h3>Sysstat 12.8.1</h3>
+<font color="#99ffff" style="font-weight: bold;">
+   <p>15 Nov 2026</p>
+</font>
+
+<p>This version fixes two security flaws which could happen with crafted
+saDD daily datafiles used by sar/sadf. See corresponding commits for
+details.
+This version also adds support for NDJSON (Newline Delimited
+JavaScript Object Notation) output for all sysstat commands (sadf,
+iostat, mpstat, pidstat, cifsiostat and tapestat).
+Many other small fixes are included here too.</p>
+
+<h3 id="changelog">Changelog</h3>
+<ul>
+  <li><strong>Yeo Jooho</strong>: Fix security issue with crafted sa datafiles.</li>
+  <li><strong>Gabe Dijkstra</strong>: sar/sadf: Fix out-of-bounds write in check_file_actlst().</li>
+  <li>sadf: Add NDJSON (Newline Delimited JavaScript Object Notation) output format.</li>
+  <li>iostat: Add NDJSON output format.</li>
+  <li>pidstat: Add NDJSON output format.</li>
+  <li>mpstat: Add NDJSON outpout format.</li>
+  <li>cifsiostat: Add NDJSON outpout format.</li>
+  <li>tapestat: Add NDJSON outpout format.</li>
+  <li>sadf/pidstat: Escape forbidden characters in JSON output.</li>
+  <li>sadf: Escape double quotes characters in XML output.</li>
+  <li>mpstat: Remove unneeded CR in JSON output.</li>
+  <li>pidstat: Remove unneeded CR when report is interrupted with Ctrl/C.</li>
+  <li>sar/sadc/sadf: Use 64-bit unsigned int to save flags.</li>
+  <li>Merge xprintf() and xprintf0() functions.</li>
+  <li>pidstat: Fix JSON output when PID list becomes empty.</li>
+  <li><strong>Mattbat45</strong>: iostat: Fix %util value for groups of disks.</li>
+  <li><strong>Hanjinpeng</strong>: sar: Fix min/max values computation for serial lines statistics.</li>
+  <li><strong>Hanjinpeng</strong>: ioconf: Fix buffer overflows when parsing sysstat.ioconf.</li>
+  <li><strong>Hanjinpeng</strong>: common.c: Check pointer before use in extract_wwnid().</li>
+  <li><strong>Hanjinpeng</strong>: Fix typos in comments.</li>
+  <li><strong>Nathan Scott</strong>: sar/sadf: Allow more than 99 days back in day offset argument.</li>
+  <li><strong>Nathan Scott</strong>: rd_stats.c: Don’t silently drop CPUs from interrupt statistics.</li>
+  <li><strong>Sagar Narayan</strong>: iostat: Fix stack-use-after-return with options -N and -j.</li>
+  <li><strong>Sagar Narayan</strong>: simtest: Compute yesterday’s date in GMT.</li>
+  <li><strong>Sagar Narayan</strong>: simtest: Run sadf tests in GMT.</li>
+  <li><strong>Sagar Narayan</strong>: simtest: Don’t depend on the environment variables of the caller.</li>
+  <li><strong>Sagar Narayan</strong>: simtest: Add test for negative sensor values in XML output.</li>
+  <li>simtest: Display number of failed tests in do_test script.</li>
+  <li>simtest: Make extra tests runnable in out-of-tree environment.</li>
+  <li><strong>Anton Samartsev</strong>: Update RPM spec file.</li>
+  <li><strong>Mithil Mhatre</strong>: Explain pswpin/pswpout with relation to RAM and swap space in sar manual page.</li>
+  <li>common.c: Fix a gcc warning.</li>
+  <li>configure: Small fix and update.</li>
+  <li>Non-regression tests updated. New tests added.</li>
+  <li>sadf, iostat, mpstat, pidstat, cifsiostat and tapestat manual pages updated.</li>
+  <li>NLS translations updated.</li>
+</ul>
+
+<h3 id="download">Download</h3>
+
+<table style="text-align: center;" valign="middle"
+       cellspacing="2" cellpadding="2" border="1"
+
+       height="145"
+
+       width="750" bgcolor="#663366">
+   <tbody>
+      <tr style="font-weight: bold; font-style: italic;
+          background-color: rgb(51, 102, 102);" height="40">
+         <td>sysstat 12.8.1</td>
+         <td>Size</td>
+         <td>sha1sum</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.1.tar.xz"
+            moz-do-not-send="true">Download (tar.xz format)</a></td>
+         <td>931 kiB</td>
+         <td>a8edd9b13faac4c03cc30186b50ef379eab553cd</td>
+      </tr>
+
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.1.tar.gz"
+            moz-do-not-send="true">Download (tar.gz format)</a></td>
+         <td>1578 kiB</td>
+         <td>b9cfbaa22d7954d92792d638491fb07e07d98a33</td>
+      </tr>
+      <tr>
+         <td style="text-align: left;">
+            <a href="/sysstat-packages/sysstat-12.8.1-1.x86_64.rpm"
+            moz-do-not-send="true">Download (x86_64 rpm format)</a></td>
+         <td>499 kiB</td>
+         <td>ccf4549323e7b1aaa30bd0ff269fb6f582f43ad8</td>
+      </tr>
+
+   </tbody>
+</table>
+<br><br>
+
+   </body>
+</html>
